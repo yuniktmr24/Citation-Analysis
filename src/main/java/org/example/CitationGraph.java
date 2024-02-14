@@ -2,14 +2,17 @@ package org.example;
 
 import org.apache.spark.api.java.function.MapFunction;
 import org.apache.spark.sql.*;
+import org.apache.spark.sql.catalyst.expressions.In;
 import org.apache.spark.sql.expressions.Window;
 import org.apache.spark.sql.expressions.WindowSpec;
+import scala.Function1;
+import scala.Serializable;
 
 import java.util.*;
 
 import static org.apache.spark.sql.functions.*;
 
-public class CitationGraph {
+public class CitationGraph{
     public static void main(String[] args) {
         if (args.length < 2) {
             System.err.println("Usage: CitationGraph <citations_file> <publications_file>");
@@ -34,28 +37,73 @@ public class CitationGraph {
                     split(col("value"), "\t").getItem(0).as("paper_id"),
                     split(col("value"), "\t").getItem(1).as("published_date"));
 
+            /*
             Dataset <Row> uniquePublicationsPerYear = computeUniquePublicationPerYear(cleanedupPublicationDataset);
             computeCumulativeNodesPerYear(uniquePublicationsPerYear);
             Dataset <Row> citationsPerYear = computeCitationEdgesPerYear(cleanedupCitationsDataset, cleanedupPublicationDataset);
             computeCumulativeEdgesPerYear(citationsPerYear);
-            computeOverallDiameter(citationsDataset, cleanedupPublicationDataset);
+            */
+            //computeOverallDiameter(citationsDataset);
+            computeYearlyDiameter(cleanedupCitationsDataset, cleanedupPublicationDataset);
 
         }catch(Exception ex) {
             ex.printStackTrace();
         }
     }
 
-    private static void computeOverallDiameter(Dataset<Row> cleanedupPublicationDataset, Dataset<Row> citationsDataset) {
+    private static void computeYearlyDiameter (Dataset<Row> citationsDataset, Dataset <Row> cleanedupPublicationDataset) {
         Dataset<Row> joinedDataset = citationsDataset.join(cleanedupPublicationDataset, "paper_id");
-        joinedDataset = joinedDataset.withColumn("published_year", substring(col("published_date"), 1, 4))
-                .filter(col("published_year").lt(2003)
-                        .or(col("published_year").equalTo(2003)
-                                .and(substring(col("published_date"), 6, 7).leq("04"))));
-        //joinedDataset.show();
+        joinedDataset = joinedDataset.withColumn("published_year", substring(col("published_date"), 1, 4));
 
-        Dataset<Row> uniqueCitationsPerYear = joinedDataset.groupBy("published_year").agg(countDistinct("cited_paper_id").alias("unique_citation_edges"));
+        // Map the joined dataset to Citation class
+        //udf causes serialization error. careful
+        Dataset<Citation> citations = joinedDataset.map((MapFunction<Row, Citation>) (Row row) -> {
+            int citingPaper = Integer.parseInt(row.getString(row.fieldIndex("paper_id")));
+            int citedPaper = Integer.parseInt(row.getString(row.fieldIndex("cited_paper_id")));
+            String publishedDate = row.getString(row.fieldIndex("published_date"));
+            int publicationYear = Integer.parseInt(publishedDate.substring(0, 4)); // Extract year only
+            return new Citation(citingPaper, citedPaper, publicationYear);
+        }, Encoders.bean(Citation.class));
 
-        Dataset<Citation> citations = citationsDataset.map((MapFunction<Row, Citation>) row -> {
+        // Iterate over each publication year without collecting the data
+        Map <Integer, Integer> yearlyConnectedPairCount = new HashMap<>();
+        Map <Integer, Set<Pair <Integer, Double>>> yearlyHopPlots = new HashMap<>();
+        for (int year = 1992; year <= 2003; year++) {
+            // Filter the citations dataset for the current year
+            Dataset<Citation> datasetForYear = citations.filter(citations.col("publicationYear").leq(year));
+            // Add the dataset for the current year to the list
+            // Group by the citing paper to get a list of cited papers for each citing paper
+            RelationalGroupedDataset groupedCitingToCited = datasetForYear.groupBy("citingPaper");
+
+            // Aggregate to get a list of cited papers for each citing paper
+            Dataset<Row> aggregatedCitingToCited = groupedCitingToCited.agg(functions.collect_list("citedPaper").alias("citedPapers"));
+
+            // Convert the result to a map
+            List<Row> rows = aggregatedCitingToCited.collectAsList();
+            //System.out.println(rows.size());
+            Map<Integer, List<Integer>> citingToCitedMap = new java.util.HashMap<>();
+            for (Row row : rows) {
+                int citingPaper = row.getInt(0);
+                List<Integer> citedPapers = row.getList(1);
+                citingToCitedMap.put(citingPaper, citedPapers);
+            }
+            int numConnectedPairs = calculateConnectedPairs(citingToCitedMap, 15);
+            //System.out.println("year : "+ year + " : "+ numConnectedPairs);
+            yearlyConnectedPairCount.put(year, numConnectedPairs);
+            yearlyHopPlots.put(year, calculateHopPlot(numConnectedPairs, citingToCitedMap));
+
+        }
+
+//        for (Map.Entry<Integer, Integer> entry: yearlyConnectedPairCount.entrySet()) {
+//            System.out.println("Year : "+ entry.getKey() + " | Connected pairs : "+ entry.getValue());
+//        }
+        for (Map.Entry<Integer, Set<Pair <Integer, Double>>> entry: yearlyHopPlots.entrySet()) {
+            System.out.println("Year : "+ entry.getKey() + " | Hop Plot : "+ entry.getValue());
+        }
+    }
+
+    private static void computeOverallDiameter(Dataset<Row> rawCitationsDataset) {
+        Dataset<Citation> citations = rawCitationsDataset.map((MapFunction<Row, Citation>) row -> {
             String[] parts = row.getString(0).split("\\s+");
             int citingPaper = Integer.parseInt(parts[0]);
             int citedPaper = Integer.parseInt(parts[1]);
@@ -261,9 +309,38 @@ public class CitationGraph {
 
         public Citation() {}
 
+        public Citation(int citingPaper, int citedPaper) {
+            this.citingPaper = citingPaper;
+            this.citedPaper = citedPaper;
+        }
+
         public Citation(int citingPaper, int citedPaper, int publicationYear) {
             this.citingPaper = citingPaper;
             this.citedPaper = citedPaper;
+            this.publicationYear = publicationYear;
+        }
+
+        public int getCitingPaper() {
+            return citingPaper;
+        }
+
+        public void setCitingPaper(int citingPaper) {
+            this.citingPaper = citingPaper;
+        }
+
+        public int getCitedPaper() {
+            return citedPaper;
+        }
+
+        public void setCitedPaper(int citedPaper) {
+            this.citedPaper = citedPaper;
+        }
+
+        public int getPublicationYear() {
+            return publicationYear;
+        }
+
+        public void setPublicationYear(int publicationYear) {
             this.publicationYear = publicationYear;
         }
     }

@@ -70,3 +70,20 @@
 diameter 8
 [(8, 90.00000021895343), (1, 0.1520706065279522), (4, 18.775221328534574), (7, 82.13882738304378), (3, 5.287407149236977), (5, 43.742035103447066), (6, 67.23116672557609), (2, 1.0847010205047485)]
 done / number of connected pairs 228359055
+
+
+***Yearly stats***
+Year : 1992 | Connected pairs : 242
+Year : 1993 | Connected pairs : 3498
+Year : 1994 | Connected pairs : 26183
+Year : 1995 | Connected pairs : 166246
+Year : 1996 | Connected pairs : 1042430
+Year : 1997 | Connected pairs : 5847706
+Year : 1998 | Connected pairs : 22223672
+Year : 1999 | Connected pairs : 59532588
+Year : 2000 | Connected pairs : 122510646
+Year : 2001 | Connected pairs : 210876524
+Year : 2002 | Connected pairs : 228359055
+Year : 2003 | Connected pairs : 228359055
+
+**Yearly diameters***
