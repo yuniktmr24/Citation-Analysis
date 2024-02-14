@@ -1,0 +1,1012 @@
+olympia:~/cs535$ spark-submit --class org.example.CitationGraph --master spark://olympia.cs.colostate.edu:30176 ~/cs535/CitationGraph/target/CitationGraph-1.0-SNAPSHOT.jar /citations-redo.txt /published-dates-redo.txt
+24/02/13 22:29:57 INFO SparkContext: Running Spark version 3.5.0
+24/02/13 22:29:57 INFO SparkContext: OS info Linux, 4.18.0-513.9.1.el8_9.x86_64, amd64
+24/02/13 22:29:57 INFO SparkContext: Java version 11.0.21
+24/02/13 22:29:57 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+24/02/13 22:29:57 INFO ResourceUtils: ==============================================================
+24/02/13 22:29:57 INFO ResourceUtils: No custom resources configured for spark.driver.
+24/02/13 22:29:57 INFO ResourceUtils: ==============================================================
+24/02/13 22:29:57 INFO SparkContext: Submitted application: CitationGraph
+24/02/13 22:29:57 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+24/02/13 22:29:57 INFO ResourceProfile: Limiting resource is cpu
+24/02/13 22:29:57 INFO ResourceProfileManager: Added ResourceProfile id: 0
+24/02/13 22:29:57 INFO SecurityManager: Changing view acls to: ytamraka
+24/02/13 22:29:57 INFO SecurityManager: Changing modify acls to: ytamraka
+24/02/13 22:29:57 INFO SecurityManager: Changing view acls groups to:
+24/02/13 22:29:57 INFO SecurityManager: Changing modify acls groups to:
+24/02/13 22:29:57 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ytamraka; groups with view permissions: EMPTY; users with modify permissions: ytamraka; groups with modify permissions: EMPTY
+24/02/13 22:29:57 INFO Utils: Successfully started service 'sparkDriver' on port 39125.
+24/02/13 22:29:57 INFO SparkEnv: Registering MapOutputTracker
+24/02/13 22:29:57 INFO SparkEnv: Registering BlockManagerMaster
+24/02/13 22:29:57 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+24/02/13 22:29:57 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+24/02/13 22:29:57 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+24/02/13 22:29:57 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-1b513528-ab79-4ac3-a9be-161fd58d1e58
+24/02/13 22:29:57 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+24/02/13 22:29:57 INFO SparkEnv: Registering OutputCommitCoordinator
+24/02/13 22:29:57 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+24/02/13 22:29:57 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+24/02/13 22:29:57 INFO SparkContext: Added JAR file:/s/chopin/b/grad/ytamraka/cs535/CitationGraph/target/CitationGraph-1.0-SNAPSHOT.jar at spark://olympia.cs.colostate.edu:39125/jars/CitationGraph-1.0-SNAPSHOT.jar with timestamp 1707888597505
+24/02/13 22:29:57 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://olympia.cs.colostate.edu:30176...
+24/02/13 22:29:57 INFO TransportClientFactory: Successfully created connection to olympia.cs.colostate.edu/129.82.44.161:30176 after 13 ms (0 ms spent in bootstraps)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20240213222958-0000
+24/02/13 22:29:58 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 43375.
+24/02/13 22:29:58 INFO NettyBlockTransferService: Server created on olympia.cs.colostate.edu:43375
+24/02/13 22:29:58 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+24/02/13 22:29:58 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, olympia.cs.colostate.edu, 43375, None)
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20240213222958-0000/0 on worker-20240213222053-129.82.44.164-34257 (129.82.44.164:34257) with 1 core(s)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20240213222958-0000/0 on hostPort 129.82.44.164:34257 with 1 core(s), 1024.0 MiB RAM
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20240213222958-0000/1 on worker-20240213222105-129.82.44.158-42865 (129.82.44.158:42865) with 1 core(s)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20240213222958-0000/1 on hostPort 129.82.44.158:42865 with 1 core(s), 1024.0 MiB RAM
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20240213222958-0000/2 on worker-20240213222050-129.82.44.159-40713 (129.82.44.159:40713) with 1 core(s)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20240213222958-0000/2 on hostPort 129.82.44.159:40713 with 1 core(s), 1024.0 MiB RAM
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20240213222958-0000/3 on worker-20240213222053-129.82.44.165-38631 (129.82.44.165:38631) with 1 core(s)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20240213222958-0000/3 on hostPort 129.82.44.165:38631 with 1 core(s), 1024.0 MiB RAM
+24/02/13 22:29:58 INFO BlockManagerMasterEndpoint: Registering block manager olympia.cs.colostate.edu:43375 with 434.4 MiB RAM, BlockManagerId(driver, olympia.cs.colostate.edu, 43375, None)
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20240213222958-0000/4 on worker-20240213222050-129.82.44.160-37481 (129.82.44.160:37481) with 1 core(s)
+24/02/13 22:29:58 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, olympia.cs.colostate.edu, 43375, None)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20240213222958-0000/4 on hostPort 129.82.44.160:37481 with 1 core(s), 1024.0 MiB RAM
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20240213222958-0000/5 on worker-20240213222107-129.82.44.158-43461 (129.82.44.158:43461) with 1 core(s)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20240213222958-0000/5 on hostPort 129.82.44.158:43461 with 1 core(s), 1024.0 MiB RAM
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20240213222958-0000/6 on worker-20240213222052-129.82.44.160-40251 (129.82.44.160:40251) with 1 core(s)
+24/02/13 22:29:58 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, olympia.cs.colostate.edu, 43375, None)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20240213222958-0000/6 on hostPort 129.82.44.160:40251 with 1 core(s), 1024.0 MiB RAM
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20240213222958-0000/7 on worker-20240213222052-129.82.44.159-41401 (129.82.44.159:41401) with 1 core(s)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20240213222958-0000/7 on hostPort 129.82.44.159:41401 with 1 core(s), 1024.0 MiB RAM
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20240213222958-0000/8 on worker-20240213222051-129.82.44.165-34137 (129.82.44.165:34137) with 1 core(s)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20240213222958-0000/8 on hostPort 129.82.44.165:34137 with 1 core(s), 1024.0 MiB RAM
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20240213222958-0000/9 on worker-20240213222051-129.82.44.164-40323 (129.82.44.164:40323) with 1 core(s)
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: Granted executor ID app-20240213222958-0000/9 on hostPort 129.82.44.164:40323 with 1 core(s), 1024.0 MiB RAM
+24/02/13 22:29:58 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20240213222958-0000/7 is now RUNNING
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20240213222958-0000/1 is now RUNNING
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20240213222958-0000/9 is now RUNNING
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20240213222958-0000/0 is now RUNNING
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20240213222958-0000/4 is now RUNNING
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20240213222958-0000/6 is now RUNNING
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20240213222958-0000/3 is now RUNNING
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20240213222958-0000/5 is now RUNNING
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20240213222958-0000/8 is now RUNNING
+24/02/13 22:29:58 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20240213222958-0000/2 is now RUNNING
+24/02/13 22:29:58 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+24/02/13 22:29:58 INFO SharedState: Warehouse path is 'file:/s/chopin/b/grad/ytamraka/cs535/spark-warehouse'.
+24/02/13 22:29:58 INFO InMemoryFileIndex: It took 37 ms to list leaf files for 1 paths.
+24/02/13 22:29:59 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+****Unique publication nodes year****
+24/02/13 22:29:59 INFO FileSourceStrategy: Pushed Filters:
+24/02/13 22:29:59 INFO FileSourceStrategy: Post-Scan Filters: ((cast(substring(split(value#7, 	, -1)[1], 1, 4) as int) < 2003) OR ((cast(substring(split(value#7, 	, -1)[1], 1, 4) as int) = 2003) AND (substring(split(value#7, 	, -1)[1], 6, 7) <= 04)))
+24/02/13 22:29:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (129.82.44.159:52682) with ID 7,  ResourceProfileId 0
+24/02/13 22:29:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (129.82.44.160:56064) with ID 4,  ResourceProfileId 0
+24/02/13 22:29:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (129.82.44.160:56052) with ID 6,  ResourceProfileId 0
+24/02/13 22:29:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (129.82.44.159:52686) with ID 2,  ResourceProfileId 0
+24/02/13 22:29:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (129.82.44.165:36546) with ID 3,  ResourceProfileId 0
+24/02/13 22:29:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (129.82.44.164:41528) with ID 9,  ResourceProfileId 0
+24/02/13 22:29:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (129.82.44.165:36540) with ID 8,  ResourceProfileId 0
+24/02/13 22:29:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (129.82.44.164:41530) with ID 0,  ResourceProfileId 0
+24/02/13 22:29:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (129.82.44.158:36146) with ID 5,  ResourceProfileId 0
+24/02/13 22:29:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (129.82.44.158:36150) with ID 1,  ResourceProfileId 0
+24/02/13 22:29:59 INFO BlockManagerMasterEndpoint: Registering block manager 129.82.44.165:39193 with 434.4 MiB RAM, BlockManagerId(3, 129.82.44.165, 39193, None)
+24/02/13 22:29:59 INFO BlockManagerMasterEndpoint: Registering block manager 129.82.44.164:34803 with 434.4 MiB RAM, BlockManagerId(0, 129.82.44.164, 34803, None)
+24/02/13 22:29:59 INFO BlockManagerMasterEndpoint: Registering block manager 129.82.44.165:39397 with 434.4 MiB RAM, BlockManagerId(8, 129.82.44.165, 39397, None)
+24/02/13 22:29:59 INFO BlockManagerMasterEndpoint: Registering block manager 129.82.44.164:41145 with 434.4 MiB RAM, BlockManagerId(9, 129.82.44.164, 41145, None)
+24/02/13 22:29:59 INFO BlockManagerMasterEndpoint: Registering block manager 129.82.44.159:41449 with 434.4 MiB RAM, BlockManagerId(2, 129.82.44.159, 41449, None)
+24/02/13 22:29:59 INFO BlockManagerMasterEndpoint: Registering block manager 129.82.44.159:40945 with 434.4 MiB RAM, BlockManagerId(7, 129.82.44.159, 40945, None)
+24/02/13 22:29:59 INFO BlockManagerMasterEndpoint: Registering block manager 129.82.44.160:39417 with 434.4 MiB RAM, BlockManagerId(6, 129.82.44.160, 39417, None)
+24/02/13 22:29:59 INFO BlockManagerMasterEndpoint: Registering block manager 129.82.44.160:43625 with 434.4 MiB RAM, BlockManagerId(4, 129.82.44.160, 43625, None)
+24/02/13 22:29:59 INFO BlockManagerMasterEndpoint: Registering block manager 129.82.44.158:40201 with 434.4 MiB RAM, BlockManagerId(5, 129.82.44.158, 40201, None)
+24/02/13 22:29:59 INFO BlockManagerMasterEndpoint: Registering block manager 129.82.44.158:41429 with 434.4 MiB RAM, BlockManagerId(1, 129.82.44.158, 41429, None)
+24/02/13 22:29:59 INFO CodeGenerator: Code generated in 89.458456 ms
+24/02/13 22:29:59 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 203.1 KiB, free 434.2 MiB)
+24/02/13 22:29:59 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 434.2 MiB)
+24/02/13 22:29:59 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:29:59 INFO SparkContext: Created broadcast 0 from show at CitationGraph.java:185
+24/02/13 22:29:59 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/02/13 22:29:59 INFO DAGScheduler: Registering RDD 4 (show at CitationGraph.java:185) as input to shuffle 0
+24/02/13 22:29:59 INFO DAGScheduler: Got map stage job 0 (show at CitationGraph.java:185) with 1 output partitions
+24/02/13 22:29:59 INFO DAGScheduler: Final stage: ShuffleMapStage 0 (show at CitationGraph.java:185)
+24/02/13 22:29:59 INFO DAGScheduler: Parents of final stage: List()
+24/02/13 22:29:59 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:29:59 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[4] at show at CitationGraph.java:185), which has no missing parents
+24/02/13 22:29:59 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 19.9 KiB, free 434.1 MiB)
+24/02/13 22:29:59 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 8.7 KiB, free 434.1 MiB)
+24/02/13 22:29:59 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 8.7 KiB, free: 434.4 MiB)
+24/02/13 22:29:59 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:29:59 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[4] at show at CitationGraph.java:185) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:29:59 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+24/02/13 22:29:59 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (129.82.44.164, executor 9, partition 0, ANY, 8434 bytes)
+24/02/13 22:30:00 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 129.82.44.164:41145 (size: 8.7 KiB, free: 434.4 MiB)
+24/02/13 22:30:00 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 129.82.44.164:41145 (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:00 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1019 ms on 129.82.44.164 (executor 9) (1/1)
+24/02/13 22:30:00 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+24/02/13 22:30:00 INFO DAGScheduler: ShuffleMapStage 0 (show at CitationGraph.java:185) finished in 1.071 s
+24/02/13 22:30:00 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:00 INFO DAGScheduler: running: Set()
+24/02/13 22:30:00 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:00 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:01 INFO CodeGenerator: Code generated in 32.338028 ms
+24/02/13 22:30:01 INFO DAGScheduler: Registering RDD 7 (show at CitationGraph.java:185) as input to shuffle 1
+24/02/13 22:30:01 INFO DAGScheduler: Got map stage job 1 (show at CitationGraph.java:185) with 5 output partitions
+24/02/13 22:30:01 INFO DAGScheduler: Final stage: ShuffleMapStage 2 (show at CitationGraph.java:185)
+24/02/13 22:30:01 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+24/02/13 22:30:01 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:01 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[7] at show at CitationGraph.java:185), which has no missing parents
+24/02/13 22:30:01 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 46.4 KiB, free 434.1 MiB)
+24/02/13 22:30:01 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 20.8 KiB, free 434.1 MiB)
+24/02/13 22:30:01 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 20.8 KiB, free: 434.3 MiB)
+24/02/13 22:30:01 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:01 INFO DAGScheduler: Submitting 5 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[7] at show at CitationGraph.java:185) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4))
+24/02/13 22:30:01 INFO TaskSchedulerImpl: Adding task set 2.0 with 5 tasks resource profile 0
+24/02/13 22:30:01 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 1) (129.82.44.164, executor 9, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:01 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 2) (129.82.44.164, executor 0, partition 1, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:01 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 129.82.44.164:41145 (size: 20.8 KiB, free: 434.3 MiB)
+24/02/13 22:30:01 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 129.82.44.164:34803 (size: 20.8 KiB, free: 434.4 MiB)
+24/02/13 22:30:01 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 129.82.44.164:41528
+24/02/13 22:30:01 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 129.82.44.164:41530
+24/02/13 22:30:01 INFO TaskSetManager: Starting task 2.0 in stage 2.0 (TID 3) (129.82.44.164, executor 9, partition 2, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:01 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 1) in 319 ms on 129.82.44.164 (executor 9) (1/5)
+24/02/13 22:30:01 INFO TaskSetManager: Starting task 3.0 in stage 2.0 (TID 4) (129.82.44.164, executor 9, partition 3, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:01 INFO TaskSetManager: Finished task 2.0 in stage 2.0 (TID 3) in 40 ms on 129.82.44.164 (executor 9) (2/5)
+24/02/13 22:30:01 INFO TaskSetManager: Starting task 4.0 in stage 2.0 (TID 5) (129.82.44.164, executor 9, partition 4, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:01 INFO TaskSetManager: Finished task 3.0 in stage 2.0 (TID 4) in 28 ms on 129.82.44.164 (executor 9) (3/5)
+24/02/13 22:30:01 INFO TaskSetManager: Finished task 4.0 in stage 2.0 (TID 5) in 26 ms on 129.82.44.164 (executor 9) (4/5)
+24/02/13 22:30:01 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 2) in 688 ms on 129.82.44.164 (executor 0) (5/5)
+24/02/13 22:30:01 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool
+24/02/13 22:30:01 INFO DAGScheduler: ShuffleMapStage 2 (show at CitationGraph.java:185) finished in 0.694 s
+24/02/13 22:30:01 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:01 INFO DAGScheduler: running: Set()
+24/02/13 22:30:01 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:01 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:01 INFO ShufflePartitionsUtil: For shuffle(1), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/02/13 22:30:01 INFO CodeGenerator: Code generated in 20.873888 ms
+24/02/13 22:30:01 INFO DAGScheduler: Registering RDD 10 (show at CitationGraph.java:185) as input to shuffle 2
+24/02/13 22:30:01 INFO DAGScheduler: Got map stage job 2 (show at CitationGraph.java:185) with 1 output partitions
+24/02/13 22:30:01 INFO DAGScheduler: Final stage: ShuffleMapStage 5 (show at CitationGraph.java:185)
+24/02/13 22:30:01 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 4)
+24/02/13 22:30:01 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:01 INFO DAGScheduler: Submitting ShuffleMapStage 5 (MapPartitionsRDD[10] at show at CitationGraph.java:185), which has no missing parents
+24/02/13 22:30:01 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 61.6 KiB, free 434.0 MiB)
+24/02/13 22:30:01 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 24.3 KiB, free 434.0 MiB)
+24/02/13 22:30:01 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 24.3 KiB, free: 434.3 MiB)
+24/02/13 22:30:01 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:01 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 5 (MapPartitionsRDD[10] at show at CitationGraph.java:185) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:01 INFO TaskSchedulerImpl: Adding task set 5.0 with 1 tasks resource profile 0
+24/02/13 22:30:01 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 6) (129.82.44.164, executor 0, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:01 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 129.82.44.164:34803 (size: 24.3 KiB, free: 434.4 MiB)
+24/02/13 22:30:01 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 1 to 129.82.44.164:41530
+24/02/13 22:30:01 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 6) in 129 ms on 129.82.44.164 (executor 0) (1/1)
+24/02/13 22:30:01 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool
+24/02/13 22:30:01 INFO DAGScheduler: ShuffleMapStage 5 (show at CitationGraph.java:185) finished in 0.136 s
+24/02/13 22:30:01 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:01 INFO DAGScheduler: running: Set()
+24/02/13 22:30:01 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:01 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:01 INFO ShufflePartitionsUtil: For shuffle(2), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/02/13 22:30:01 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+24/02/13 22:30:01 INFO CodeGenerator: Code generated in 15.076534 ms
+24/02/13 22:30:01 INFO SparkContext: Starting job: show at CitationGraph.java:185
+24/02/13 22:30:01 INFO DAGScheduler: Got job 3 (show at CitationGraph.java:185) with 1 output partitions
+24/02/13 22:30:01 INFO DAGScheduler: Final stage: ResultStage 9 (show at CitationGraph.java:185)
+24/02/13 22:30:01 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 8)
+24/02/13 22:30:01 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:01 INFO DAGScheduler: Submitting ResultStage 9 (MapPartitionsRDD[13] at show at CitationGraph.java:185), which has no missing parents
+24/02/13 22:30:01 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 52.2 KiB, free 433.9 MiB)
+24/02/13 22:30:01 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 22.8 KiB, free 433.9 MiB)
+24/02/13 22:30:01 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 22.8 KiB, free: 434.3 MiB)
+24/02/13 22:30:01 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:01 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 9 (MapPartitionsRDD[13] at show at CitationGraph.java:185) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:01 INFO TaskSchedulerImpl: Adding task set 9.0 with 1 tasks resource profile 0
+24/02/13 22:30:01 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 7) (129.82.44.164, executor 9, partition 0, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:02 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 129.82.44.164:41145 (size: 22.8 KiB, free: 434.3 MiB)
+24/02/13 22:30:02 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 2 to 129.82.44.164:41528
+24/02/13 22:30:02 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 7) in 88 ms on 129.82.44.164 (executor 9) (1/1)
+24/02/13 22:30:02 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool
+24/02/13 22:30:02 INFO DAGScheduler: ResultStage 9 (show at CitationGraph.java:185) finished in 0.093 s
+24/02/13 22:30:02 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+24/02/13 22:30:02 INFO TaskSchedulerImpl: Killing all running tasks in stage 9: Stage finished
+24/02/13 22:30:02 INFO DAGScheduler: Job 3 finished: show at CitationGraph.java:185, took 0.099020 s
+24/02/13 22:30:02 INFO CodeGenerator: Code generated in 4.044344 ms
++--------------+-------------+
+|published_year|unique_papers|
++--------------+-------------+
+|          2000|         5076|
+|          2002|          856|
+|          1995|         3380|
+|          1992|          850|
+|          1999|         4915|
+|          1994|         2863|
+|          1997|         4186|
+|          1996|         3861|
+|          1998|         4600|
+|          1993|         1976|
+|          2001|         5058|
++--------------+-------------+
+
+****Cumulative nodes by end of given year****
+24/02/13 22:30:02 INFO FileSourceStrategy: Pushed Filters: IsNotNull(value)
+24/02/13 22:30:02 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(value#7),((cast(substring(split(value#7, 	, -1)[1], 1, 4) as int) < 2003) OR ((cast(substring(split(value#7, 	, -1)[1], 1, 4) as int) = 2003) AND (substring(split(value#7, 	, -1)[1], 6, 7) <= 04))),(substring(split(value#7, 	, -1)[1], 1, 4) >= 1992),(substring(split(value#7, 	, -1)[1], 1, 4) <= 2004)
+24/02/13 22:30:02 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:02 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:02 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:02 INFO CodeGenerator: Code generated in 6.779346 ms
+24/02/13 22:30:02 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 203.1 KiB, free 433.7 MiB)
+24/02/13 22:30:02 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 433.7 MiB)
+24/02/13 22:30:02 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 35.5 KiB, free: 434.3 MiB)
+24/02/13 22:30:02 INFO SparkContext: Created broadcast 5 from show at CitationGraph.java:213
+24/02/13 22:30:02 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/02/13 22:30:02 INFO DAGScheduler: Registering RDD 18 (show at CitationGraph.java:213) as input to shuffle 3
+24/02/13 22:30:02 INFO DAGScheduler: Got map stage job 4 (show at CitationGraph.java:213) with 1 output partitions
+24/02/13 22:30:02 INFO DAGScheduler: Final stage: ShuffleMapStage 10 (show at CitationGraph.java:213)
+24/02/13 22:30:02 INFO DAGScheduler: Parents of final stage: List()
+24/02/13 22:30:02 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:02 INFO DAGScheduler: Submitting ShuffleMapStage 10 (MapPartitionsRDD[18] at show at CitationGraph.java:213), which has no missing parents
+24/02/13 22:30:02 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 21.3 KiB, free 433.7 MiB)
+24/02/13 22:30:02 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 8.8 KiB, free 433.7 MiB)
+24/02/13 22:30:02 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 8.8 KiB, free: 434.2 MiB)
+24/02/13 22:30:02 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:02 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 10 (MapPartitionsRDD[18] at show at CitationGraph.java:213) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:02 INFO TaskSchedulerImpl: Adding task set 10.0 with 1 tasks resource profile 0
+24/02/13 22:30:02 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 8) (129.82.44.158, executor 5, partition 0, ANY, 8434 bytes)
+24/02/13 22:30:02 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on 129.82.44.158:40201 (size: 8.8 KiB, free: 434.4 MiB)
+24/02/13 22:30:03 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on 129.82.44.158:40201 (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:03 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 8) in 965 ms on 129.82.44.158 (executor 5) (1/1)
+24/02/13 22:30:03 INFO TaskSchedulerImpl: Removed TaskSet 10.0, whose tasks have all completed, from pool
+24/02/13 22:30:03 INFO DAGScheduler: ShuffleMapStage 10 (show at CitationGraph.java:213) finished in 0.970 s
+24/02/13 22:30:03 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:03 INFO DAGScheduler: running: Set()
+24/02/13 22:30:03 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:03 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:03 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:03 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:03 INFO CodeGenerator: Code generated in 11.232471 ms
+24/02/13 22:30:03 INFO DAGScheduler: Registering RDD 21 (show at CitationGraph.java:213) as input to shuffle 4
+24/02/13 22:30:03 INFO DAGScheduler: Got map stage job 5 (show at CitationGraph.java:213) with 5 output partitions
+24/02/13 22:30:03 INFO DAGScheduler: Final stage: ShuffleMapStage 12 (show at CitationGraph.java:213)
+24/02/13 22:30:03 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 11)
+24/02/13 22:30:03 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:03 INFO DAGScheduler: Submitting ShuffleMapStage 12 (MapPartitionsRDD[21] at show at CitationGraph.java:213), which has no missing parents
+24/02/13 22:30:03 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 49.2 KiB, free 433.6 MiB)
+24/02/13 22:30:03 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 21.5 KiB, free 433.6 MiB)
+24/02/13 22:30:03 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 21.5 KiB, free: 434.2 MiB)
+24/02/13 22:30:03 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:03 INFO DAGScheduler: Submitting 5 missing tasks from ShuffleMapStage 12 (MapPartitionsRDD[21] at show at CitationGraph.java:213) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4))
+24/02/13 22:30:03 INFO TaskSchedulerImpl: Adding task set 12.0 with 5 tasks resource profile 0
+24/02/13 22:30:03 INFO TaskSetManager: Starting task 0.0 in stage 12.0 (TID 9) (129.82.44.158, executor 5, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:03 INFO TaskSetManager: Starting task 1.0 in stage 12.0 (TID 10) (129.82.44.158, executor 1, partition 1, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:03 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on 129.82.44.158:40201 (size: 21.5 KiB, free: 434.3 MiB)
+24/02/13 22:30:03 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on 129.82.44.158:41429 (size: 21.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:03 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 3 to 129.82.44.158:36146
+24/02/13 22:30:03 INFO TaskSetManager: Starting task 2.0 in stage 12.0 (TID 11) (129.82.44.158, executor 5, partition 2, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:03 INFO TaskSetManager: Finished task 0.0 in stage 12.0 (TID 9) in 282 ms on 129.82.44.158 (executor 5) (1/5)
+24/02/13 22:30:03 INFO TaskSetManager: Starting task 3.0 in stage 12.0 (TID 12) (129.82.44.158, executor 5, partition 3, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:03 INFO TaskSetManager: Finished task 2.0 in stage 12.0 (TID 11) in 40 ms on 129.82.44.158 (executor 5) (2/5)
+24/02/13 22:30:03 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 3 to 129.82.44.158:36150
+24/02/13 22:30:03 INFO TaskSetManager: Starting task 4.0 in stage 12.0 (TID 13) (129.82.44.158, executor 5, partition 4, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:03 INFO TaskSetManager: Finished task 3.0 in stage 12.0 (TID 12) in 43 ms on 129.82.44.158 (executor 5) (3/5)
+24/02/13 22:30:03 INFO TaskSetManager: Finished task 4.0 in stage 12.0 (TID 13) in 36 ms on 129.82.44.158 (executor 5) (4/5)
+24/02/13 22:30:04 INFO TaskSetManager: Finished task 1.0 in stage 12.0 (TID 10) in 697 ms on 129.82.44.158 (executor 1) (5/5)
+24/02/13 22:30:04 INFO TaskSchedulerImpl: Removed TaskSet 12.0, whose tasks have all completed, from pool
+24/02/13 22:30:04 INFO DAGScheduler: ShuffleMapStage 12 (show at CitationGraph.java:213) finished in 0.702 s
+24/02/13 22:30:04 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:04 INFO DAGScheduler: running: Set()
+24/02/13 22:30:04 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:04 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:04 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:04 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:04 INFO ShufflePartitionsUtil: For shuffle(4), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/02/13 22:30:04 INFO DAGScheduler: Registering RDD 24 (show at CitationGraph.java:213) as input to shuffle 5
+24/02/13 22:30:04 INFO DAGScheduler: Got map stage job 6 (show at CitationGraph.java:213) with 1 output partitions
+24/02/13 22:30:04 INFO DAGScheduler: Final stage: ShuffleMapStage 15 (show at CitationGraph.java:213)
+24/02/13 22:30:04 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 14)
+24/02/13 22:30:04 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:04 INFO DAGScheduler: Submitting ShuffleMapStage 15 (MapPartitionsRDD[24] at show at CitationGraph.java:213), which has no missing parents
+24/02/13 22:30:04 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 64.8 KiB, free 433.5 MiB)
+24/02/13 22:30:04 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 25.4 KiB, free 433.5 MiB)
+24/02/13 22:30:04 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 25.4 KiB, free: 434.2 MiB)
+24/02/13 22:30:04 INFO SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:04 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 15 (MapPartitionsRDD[24] at show at CitationGraph.java:213) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:04 INFO TaskSchedulerImpl: Adding task set 15.0 with 1 tasks resource profile 0
+24/02/13 22:30:04 INFO TaskSetManager: Starting task 0.0 in stage 15.0 (TID 14) (129.82.44.158, executor 5, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:04 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on 129.82.44.158:40201 (size: 25.4 KiB, free: 434.3 MiB)
+24/02/13 22:30:04 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 4 to 129.82.44.158:36146
+24/02/13 22:30:04 INFO TaskSetManager: Finished task 0.0 in stage 15.0 (TID 14) in 94 ms on 129.82.44.158 (executor 5) (1/1)
+24/02/13 22:30:04 INFO TaskSchedulerImpl: Removed TaskSet 15.0, whose tasks have all completed, from pool
+24/02/13 22:30:04 INFO DAGScheduler: ShuffleMapStage 15 (show at CitationGraph.java:213) finished in 0.098 s
+24/02/13 22:30:04 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:04 INFO DAGScheduler: running: Set()
+24/02/13 22:30:04 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:04 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:04 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:04 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:04 INFO ShufflePartitionsUtil: For shuffle(5), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/02/13 22:30:04 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+24/02/13 22:30:04 INFO CodeGenerator: Code generated in 5.428635 ms
+24/02/13 22:30:04 INFO DAGScheduler: Registering RDD 27 (show at CitationGraph.java:213) as input to shuffle 6
+24/02/13 22:30:04 INFO DAGScheduler: Got map stage job 7 (show at CitationGraph.java:213) with 1 output partitions
+24/02/13 22:30:04 INFO DAGScheduler: Final stage: ShuffleMapStage 19 (show at CitationGraph.java:213)
+24/02/13 22:30:04 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 18)
+24/02/13 22:30:04 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:04 INFO DAGScheduler: Submitting ShuffleMapStage 19 (MapPartitionsRDD[27] at show at CitationGraph.java:213), which has no missing parents
+24/02/13 22:30:04 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 56.1 KiB, free 433.4 MiB)
+24/02/13 22:30:04 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 24.1 KiB, free 433.4 MiB)
+24/02/13 22:30:04 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 24.1 KiB, free: 434.2 MiB)
+24/02/13 22:30:04 INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:04 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 19 (MapPartitionsRDD[27] at show at CitationGraph.java:213) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:04 INFO TaskSchedulerImpl: Adding task set 19.0 with 1 tasks resource profile 0
+24/02/13 22:30:04 INFO TaskSetManager: Starting task 0.0 in stage 19.0 (TID 15) (129.82.44.158, executor 1, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:04 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on 129.82.44.158:41429 (size: 24.1 KiB, free: 434.4 MiB)
+24/02/13 22:30:04 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 5 to 129.82.44.158:36150
+24/02/13 22:30:04 INFO TaskSetManager: Finished task 0.0 in stage 19.0 (TID 15) in 65 ms on 129.82.44.158 (executor 1) (1/1)
+24/02/13 22:30:04 INFO TaskSchedulerImpl: Removed TaskSet 19.0, whose tasks have all completed, from pool
+24/02/13 22:30:04 INFO DAGScheduler: ShuffleMapStage 19 (show at CitationGraph.java:213) finished in 0.070 s
+24/02/13 22:30:04 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:04 INFO DAGScheduler: running: Set()
+24/02/13 22:30:04 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:04 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:04 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:04 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:04 INFO CodeGenerator: Code generated in 3.64574 ms
+24/02/13 22:30:04 INFO CodeGenerator: Code generated in 4.805422 ms
+24/02/13 22:30:04 INFO SparkContext: Starting job: show at CitationGraph.java:213
+24/02/13 22:30:04 INFO DAGScheduler: Got job 8 (show at CitationGraph.java:213) with 1 output partitions
+24/02/13 22:30:04 INFO DAGScheduler: Final stage: ResultStage 24 (show at CitationGraph.java:213)
+24/02/13 22:30:04 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 23)
+24/02/13 22:30:04 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:04 INFO DAGScheduler: Submitting ResultStage 24 (MapPartitionsRDD[32] at show at CitationGraph.java:213), which has no missing parents
+24/02/13 22:30:04 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 62.2 KiB, free 433.4 MiB)
+24/02/13 22:30:04 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 26.1 KiB, free 433.3 MiB)
+24/02/13 22:30:04 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 26.1 KiB, free: 434.2 MiB)
+24/02/13 22:30:04 INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:04 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 24 (MapPartitionsRDD[32] at show at CitationGraph.java:213) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:04 INFO TaskSchedulerImpl: Adding task set 24.0 with 1 tasks resource profile 0
+24/02/13 22:30:04 INFO TaskSetManager: Starting task 0.0 in stage 24.0 (TID 16) (129.82.44.158, executor 5, partition 0, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:04 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on 129.82.44.158:40201 (size: 26.1 KiB, free: 434.3 MiB)
+24/02/13 22:30:04 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 6 to 129.82.44.158:36146
+24/02/13 22:30:04 INFO TaskSetManager: Finished task 0.0 in stage 24.0 (TID 16) in 416 ms on 129.82.44.158 (executor 5) (1/1)
+24/02/13 22:30:04 INFO TaskSchedulerImpl: Removed TaskSet 24.0, whose tasks have all completed, from pool
+24/02/13 22:30:04 INFO DAGScheduler: ResultStage 24 (show at CitationGraph.java:213) finished in 0.422 s
+24/02/13 22:30:04 INFO DAGScheduler: Job 8 is finished. Cancelling potential speculative or zombie tasks for this job
+24/02/13 22:30:04 INFO TaskSchedulerImpl: Killing all running tasks in stage 24: Stage finished
+24/02/13 22:30:04 INFO DAGScheduler: Job 8 finished: show at CitationGraph.java:213, took 0.424968 s
+24/02/13 22:30:04 INFO CodeGenerator: Code generated in 3.158358 ms
++--------------+-------------+---------------+-----------------------------------+
+|published_year|unique_papers|End of year (t)|No of nodes at end of year t (n(t))|
++--------------+-------------+---------------+-----------------------------------+
+|          1992|          850|           1993|                                850|
+|          1993|         1976|           1994|                               2826|
+|          1994|         2863|           1995|                               5689|
+|          1995|         3380|           1996|                               9069|
+|          1996|         3861|           1997|                              12930|
+|          1997|         4186|           1998|                              17116|
+|          1998|         4600|           1999|                              21716|
+|          1999|         4915|           2000|                              26631|
+|          2000|         5076|           2001|                              31707|
+|          2001|         5058|           2002|                              36765|
+|          2002|          856|           2003|                              37621|
++--------------+-------------+---------------+-----------------------------------+
+
+****Unique citation edges per year****
+24/02/13 22:30:05 INFO FileSourceStrategy: Pushed Filters:
+24/02/13 22:30:05 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(split(value#0, 	, -1)[0])
+24/02/13 22:30:05 INFO FileSourceStrategy: Pushed Filters:
+24/02/13 22:30:05 INFO FileSourceStrategy: Post-Scan Filters: ((cast(substring(split(value#7, 	, -1)[1], 1, 4) as int) < 2003) OR ((cast(substring(split(value#7, 	, -1)[1], 1, 4) as int) = 2003) AND (substring(split(value#7, 	, -1)[1], 6, 7) <= 04))),isnotnull(split(value#7, 	, -1)[0])
+24/02/13 22:30:05 INFO CodeGenerator: Code generated in 3.140289 ms
+24/02/13 22:30:05 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 203.1 KiB, free 433.1 MiB)
+24/02/13 22:30:05 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 433.1 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 35.5 KiB, free: 434.1 MiB)
+24/02/13 22:30:05 INFO SparkContext: Created broadcast 11 from show at CitationGraph.java:199
+24/02/13 22:30:05 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/02/13 22:30:05 INFO DAGScheduler: Registering RDD 37 (show at CitationGraph.java:199) as input to shuffle 7
+24/02/13 22:30:05 INFO DAGScheduler: Got map stage job 9 (show at CitationGraph.java:199) with 1 output partitions
+24/02/13 22:30:05 INFO DAGScheduler: Final stage: ShuffleMapStage 25 (show at CitationGraph.java:199)
+24/02/13 22:30:05 INFO DAGScheduler: Parents of final stage: List()
+24/02/13 22:30:05 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:05 INFO DAGScheduler: Submitting ShuffleMapStage 25 (MapPartitionsRDD[37] at show at CitationGraph.java:199), which has no missing parents
+24/02/13 22:30:05 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 16.1 KiB, free 433.1 MiB)
+24/02/13 22:30:05 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 7.7 KiB, free 433.1 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 7.7 KiB, free: 434.1 MiB)
+24/02/13 22:30:05 INFO SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:05 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 25 (MapPartitionsRDD[37] at show at CitationGraph.java:199) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:05 INFO TaskSchedulerImpl: Adding task set 25.0 with 1 tasks resource profile 0
+24/02/13 22:30:05 INFO TaskSetManager: Starting task 0.0 in stage 25.0 (TID 17) (129.82.44.160, executor 4, partition 0, ANY, 8428 bytes)
+24/02/13 22:30:05 INFO CodeGenerator: Code generated in 7.280819 ms
+24/02/13 22:30:05 INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 203.1 KiB, free 432.9 MiB)
+24/02/13 22:30:05 INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 432.8 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 35.5 KiB, free: 434.1 MiB)
+24/02/13 22:30:05 INFO SparkContext: Created broadcast 13 from show at CitationGraph.java:199
+24/02/13 22:30:05 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/02/13 22:30:05 INFO DAGScheduler: Registering RDD 42 (show at CitationGraph.java:199) as input to shuffle 8
+24/02/13 22:30:05 INFO DAGScheduler: Got map stage job 10 (show at CitationGraph.java:199) with 1 output partitions
+24/02/13 22:30:05 INFO DAGScheduler: Final stage: ShuffleMapStage 26 (show at CitationGraph.java:199)
+24/02/13 22:30:05 INFO DAGScheduler: Parents of final stage: List()
+24/02/13 22:30:05 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:05 INFO DAGScheduler: Submitting ShuffleMapStage 26 (MapPartitionsRDD[42] at show at CitationGraph.java:199), which has no missing parents
+24/02/13 22:30:05 INFO MemoryStore: Block broadcast_14 stored as values in memory (estimated size 20.7 KiB, free 432.8 MiB)
+24/02/13 22:30:05 INFO MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 8.9 KiB, free 432.8 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 8.9 KiB, free: 434.1 MiB)
+24/02/13 22:30:05 INFO SparkContext: Created broadcast 14 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:05 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 26 (MapPartitionsRDD[42] at show at CitationGraph.java:199) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:05 INFO TaskSchedulerImpl: Adding task set 26.0 with 1 tasks resource profile 0
+24/02/13 22:30:05 INFO TaskSetManager: Starting task 0.0 in stage 26.0 (TID 18) (129.82.44.165, executor 3, partition 0, ANY, 8434 bytes)
+24/02/13 22:30:05 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on 129.82.44.160:43625 (size: 7.7 KiB, free: 434.4 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on 129.82.44.165:39193 (size: 8.9 KiB, free: 434.4 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on 129.82.44.160:43625 (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on 129.82.44.165:39193 (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:05 INFO TaskSetManager: Finished task 0.0 in stage 26.0 (TID 18) in 831 ms on 129.82.44.165 (executor 3) (1/1)
+24/02/13 22:30:05 INFO TaskSchedulerImpl: Removed TaskSet 26.0, whose tasks have all completed, from pool
+24/02/13 22:30:05 INFO DAGScheduler: ShuffleMapStage 26 (show at CitationGraph.java:199) finished in 0.835 s
+24/02/13 22:30:05 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:05 INFO DAGScheduler: running: Set(ShuffleMapStage 25)
+24/02/13 22:30:05 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:05 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:05 INFO CodeGenerator: Code generated in 3.825949 ms
+24/02/13 22:30:05 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_7_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 21.5 KiB, free: 434.1 MiB)
+24/02/13 22:30:05 INFO DAGScheduler: Got job 11 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:264) with 5 output partitions
+24/02/13 22:30:05 INFO DAGScheduler: Final stage: ResultStage 28 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:264)
+24/02/13 22:30:05 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 27)
+24/02/13 22:30:05 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:05 INFO DAGScheduler: Submitting ResultStage 28 (MapPartitionsRDD[45] at $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264), which has no missing parents
+24/02/13 22:30:05 INFO MemoryStore: Block broadcast_15 stored as values in memory (estimated size 13.0 KiB, free 432.9 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_7_piece0 on 129.82.44.158:40201 in memory (size: 21.5 KiB, free: 434.3 MiB)
+24/02/13 22:30:05 INFO MemoryStore: Block broadcast_15_piece0 stored as bytes in memory (estimated size 6.1 KiB, free 432.9 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 6.1 KiB, free: 434.1 MiB)
+24/02/13 22:30:05 INFO SparkContext: Created broadcast 15 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:05 INFO DAGScheduler: Submitting 5 missing tasks from ResultStage 28 (MapPartitionsRDD[45] at $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4))
+24/02/13 22:30:05 INFO TaskSchedulerImpl: Adding task set 28.0 with 5 tasks resource profile 0
+24/02/13 22:30:05 INFO TaskSetManager: Starting task 0.0 in stage 28.0 (TID 19) (129.82.44.165, executor 8, partition 0, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:05 INFO TaskSetManager: Starting task 1.0 in stage 28.0 (TID 20) (129.82.44.165, executor 3, partition 1, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_7_piece0 on 129.82.44.158:41429 in memory (size: 21.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_1_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 8.7 KiB, free: 434.1 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 129.82.44.164:41145 in memory (size: 8.7 KiB, free: 434.3 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_6_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 8.8 KiB, free: 434.1 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_6_piece0 on 129.82.44.158:40201 in memory (size: 8.8 KiB, free: 434.3 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_5_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 35.5 KiB, free: 434.1 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on 129.82.44.165:39193 (size: 6.1 KiB, free: 434.4 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_5_piece0 on 129.82.44.158:40201 in memory (size: 35.5 KiB, free: 434.3 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_9_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 24.1 KiB, free: 434.2 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_9_piece0 on 129.82.44.158:41429 in memory (size: 24.1 KiB, free: 434.4 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_10_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 26.1 KiB, free: 434.2 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_10_piece0 on 129.82.44.158:40201 in memory (size: 26.1 KiB, free: 434.4 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_2_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 20.8 KiB, free: 434.2 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 129.82.44.164:41145 in memory (size: 20.8 KiB, free: 434.3 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 129.82.44.164:34803 in memory (size: 20.8 KiB, free: 434.4 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_4_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 22.8 KiB, free: 434.2 MiB)
+24/02/13 22:30:05 INFO BlockManagerInfo: Removed broadcast_4_piece0 on 129.82.44.164:41145 in memory (size: 22.8 KiB, free: 434.4 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Removed broadcast_8_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 25.4 KiB, free: 434.3 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Removed broadcast_8_piece0 on 129.82.44.158:40201 in memory (size: 25.4 KiB, free: 434.4 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Removed broadcast_14_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 8.9 KiB, free: 434.3 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Removed broadcast_14_piece0 on 129.82.44.165:39193 in memory (size: 8.9 KiB, free: 434.4 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Removed broadcast_3_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 24.3 KiB, free: 434.3 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 129.82.44.164:34803 in memory (size: 24.3 KiB, free: 434.4 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Removed broadcast_0_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 35.5 KiB, free: 434.3 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 129.82.44.164:41145 in memory (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:06 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 8 to 129.82.44.165:36546
+24/02/13 22:30:06 INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on 129.82.44.165:39397 (size: 6.1 KiB, free: 434.4 MiB)
+24/02/13 22:30:06 INFO TaskSetManager: Starting task 2.0 in stage 28.0 (TID 21) (129.82.44.165, executor 3, partition 2, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:06 INFO TaskSetManager: Finished task 1.0 in stage 28.0 (TID 20) in 107 ms on 129.82.44.165 (executor 3) (1/5)
+24/02/13 22:30:06 INFO TaskSetManager: Starting task 3.0 in stage 28.0 (TID 22) (129.82.44.165, executor 3, partition 3, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:06 INFO TaskSetManager: Finished task 2.0 in stage 28.0 (TID 21) in 12 ms on 129.82.44.165 (executor 3) (2/5)
+24/02/13 22:30:06 INFO TaskSetManager: Starting task 4.0 in stage 28.0 (TID 23) (129.82.44.165, executor 3, partition 4, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:06 INFO TaskSetManager: Finished task 3.0 in stage 28.0 (TID 22) in 11 ms on 129.82.44.165 (executor 3) (3/5)
+24/02/13 22:30:06 INFO TaskSetManager: Finished task 4.0 in stage 28.0 (TID 23) in 11 ms on 129.82.44.165 (executor 3) (4/5)
+24/02/13 22:30:06 INFO TaskSetManager: Finished task 0.0 in stage 25.0 (TID 17) in 1042 ms on 129.82.44.160 (executor 4) (1/1)
+24/02/13 22:30:06 INFO TaskSchedulerImpl: Removed TaskSet 25.0, whose tasks have all completed, from pool
+24/02/13 22:30:06 INFO DAGScheduler: ShuffleMapStage 25 (show at CitationGraph.java:199) finished in 1.046 s
+24/02/13 22:30:06 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:06 INFO DAGScheduler: running: Set(ResultStage 28)
+24/02/13 22:30:06 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:06 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:06 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 8 to 129.82.44.165:36540
+24/02/13 22:30:06 INFO TaskSetManager: Finished task 0.0 in stage 28.0 (TID 19) in 439 ms on 129.82.44.165 (executor 8) (5/5)
+24/02/13 22:30:06 INFO TaskSchedulerImpl: Removed TaskSet 28.0, whose tasks have all completed, from pool
+24/02/13 22:30:06 INFO DAGScheduler: ResultStage 28 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:264) finished in 0.443 s
+24/02/13 22:30:06 INFO DAGScheduler: Job 11 is finished. Cancelling potential speculative or zombie tasks for this job
+24/02/13 22:30:06 INFO TaskSchedulerImpl: Killing all running tasks in stage 28: Stage finished
+24/02/13 22:30:06 INFO DAGScheduler: Job 11 finished: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264, took 0.444503 s
+24/02/13 22:30:06 INFO CodeGenerator: Code generated in 2.254569 ms
+24/02/13 22:30:06 INFO MemoryStore: Block broadcast_16_piece0 stored as bytes in memory (estimated size 897.3 KiB, free 433.0 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 897.3 KiB, free: 433.4 MiB)
+24/02/13 22:30:06 INFO SparkContext: Created broadcast 16 from $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264
+24/02/13 22:30:06 INFO CodeGenerator: Code generated in 10.430659 ms
+24/02/13 22:30:06 INFO DAGScheduler: Registering RDD 48 (show at CitationGraph.java:199) as input to shuffle 9
+24/02/13 22:30:06 INFO DAGScheduler: Got map stage job 12 (show at CitationGraph.java:199) with 5 output partitions
+24/02/13 22:30:06 INFO DAGScheduler: Final stage: ShuffleMapStage 30 (show at CitationGraph.java:199)
+24/02/13 22:30:06 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 29)
+24/02/13 22:30:06 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:06 INFO DAGScheduler: Submitting ShuffleMapStage 30 (MapPartitionsRDD[48] at show at CitationGraph.java:199), which has no missing parents
+24/02/13 22:30:06 INFO MemoryStore: Block broadcast_17 stored as values in memory (estimated size 56.4 KiB, free 433.0 MiB)
+24/02/13 22:30:06 INFO MemoryStore: Block broadcast_17_piece0 stored as bytes in memory (estimated size 24.8 KiB, free 432.9 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Added broadcast_17_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 24.8 KiB, free: 433.4 MiB)
+24/02/13 22:30:06 INFO SparkContext: Created broadcast 17 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:06 INFO DAGScheduler: Submitting 5 missing tasks from ShuffleMapStage 30 (MapPartitionsRDD[48] at show at CitationGraph.java:199) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4))
+24/02/13 22:30:06 INFO TaskSchedulerImpl: Adding task set 30.0 with 5 tasks resource profile 0
+24/02/13 22:30:06 INFO TaskSetManager: Starting task 0.0 in stage 30.0 (TID 24) (129.82.44.160, executor 4, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:06 INFO TaskSetManager: Starting task 1.0 in stage 30.0 (TID 25) (129.82.44.160, executor 6, partition 1, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:06 INFO BlockManagerInfo: Added broadcast_17_piece0 in memory on 129.82.44.160:43625 (size: 24.8 KiB, free: 434.3 MiB)
+24/02/13 22:30:06 INFO BlockManagerInfo: Added broadcast_17_piece0 in memory on 129.82.44.160:39417 (size: 24.8 KiB, free: 434.4 MiB)
+24/02/13 22:30:06 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 7 to 129.82.44.160:56064
+24/02/13 22:30:06 INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on 129.82.44.160:43625 (size: 897.3 KiB, free: 433.5 MiB)
+24/02/13 22:30:06 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 7 to 129.82.44.160:56052
+24/02/13 22:30:06 INFO TaskSetManager: Starting task 2.0 in stage 30.0 (TID 26) (129.82.44.160, executor 4, partition 2, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:06 INFO TaskSetManager: Finished task 0.0 in stage 30.0 (TID 24) in 375 ms on 129.82.44.160 (executor 4) (1/5)
+24/02/13 22:30:06 INFO TaskSetManager: Starting task 3.0 in stage 30.0 (TID 27) (129.82.44.160, executor 4, partition 3, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:06 INFO TaskSetManager: Finished task 2.0 in stage 30.0 (TID 26) in 85 ms on 129.82.44.160 (executor 4) (2/5)
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 4.0 in stage 30.0 (TID 28) (129.82.44.160, executor 4, partition 4, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 3.0 in stage 30.0 (TID 27) in 73 ms on 129.82.44.160 (executor 4) (3/5)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on 129.82.44.160:39417 (size: 897.3 KiB, free: 433.5 MiB)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 4.0 in stage 30.0 (TID 28) in 70 ms on 129.82.44.160 (executor 4) (4/5)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 1.0 in stage 30.0 (TID 25) in 828 ms on 129.82.44.160 (executor 6) (5/5)
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Removed TaskSet 30.0, whose tasks have all completed, from pool
+24/02/13 22:30:07 INFO DAGScheduler: ShuffleMapStage 30 (show at CitationGraph.java:199) finished in 0.832 s
+24/02/13 22:30:07 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:07 INFO DAGScheduler: running: Set()
+24/02/13 22:30:07 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:07 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:07 INFO ShufflePartitionsUtil: For shuffle(9), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/02/13 22:30:07 INFO CodeGenerator: Code generated in 10.818401 ms
+24/02/13 22:30:07 INFO DAGScheduler: Registering RDD 51 (show at CitationGraph.java:199) as input to shuffle 10
+24/02/13 22:30:07 INFO DAGScheduler: Got map stage job 13 (show at CitationGraph.java:199) with 3 output partitions
+24/02/13 22:30:07 INFO DAGScheduler: Final stage: ShuffleMapStage 33 (show at CitationGraph.java:199)
+24/02/13 22:30:07 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 32)
+24/02/13 22:30:07 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:07 INFO DAGScheduler: Submitting ShuffleMapStage 33 (MapPartitionsRDD[51] at show at CitationGraph.java:199), which has no missing parents
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_18 stored as values in memory (estimated size 70.2 KiB, free 432.9 MiB)
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_18_piece0 stored as bytes in memory (estimated size 27.8 KiB, free 432.8 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_18_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 27.8 KiB, free: 433.4 MiB)
+24/02/13 22:30:07 INFO SparkContext: Created broadcast 18 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:07 INFO DAGScheduler: Submitting 3 missing tasks from ShuffleMapStage 33 (MapPartitionsRDD[51] at show at CitationGraph.java:199) (first 15 tasks are for partitions Vector(0, 1, 2))
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Adding task set 33.0 with 3 tasks resource profile 0
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 0.0 in stage 33.0 (TID 29) (129.82.44.160, executor 4, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 1.0 in stage 33.0 (TID 30) (129.82.44.160, executor 6, partition 1, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_18_piece0 in memory on 129.82.44.160:43625 (size: 27.8 KiB, free: 433.4 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_18_piece0 in memory on 129.82.44.160:39417 (size: 27.8 KiB, free: 433.5 MiB)
+24/02/13 22:30:07 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 9 to 129.82.44.160:56064
+24/02/13 22:30:07 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 9 to 129.82.44.160:56052
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 2.0 in stage 33.0 (TID 31) (129.82.44.160, executor 6, partition 2, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 1.0 in stage 33.0 (TID 30) in 140 ms on 129.82.44.160 (executor 6) (1/3)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 0.0 in stage 33.0 (TID 29) in 151 ms on 129.82.44.160 (executor 4) (2/3)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 2.0 in stage 33.0 (TID 31) in 47 ms on 129.82.44.160 (executor 6) (3/3)
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Removed TaskSet 33.0, whose tasks have all completed, from pool
+24/02/13 22:30:07 INFO DAGScheduler: ShuffleMapStage 33 (show at CitationGraph.java:199) finished in 0.190 s
+24/02/13 22:30:07 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:07 INFO DAGScheduler: running: Set()
+24/02/13 22:30:07 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:07 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:07 INFO ShufflePartitionsUtil: For shuffle(10), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/02/13 22:30:07 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+24/02/13 22:30:07 INFO CodeGenerator: Code generated in 4.642858 ms
+24/02/13 22:30:07 INFO SparkContext: Starting job: show at CitationGraph.java:199
+24/02/13 22:30:07 INFO DAGScheduler: Got job 14 (show at CitationGraph.java:199) with 1 output partitions
+24/02/13 22:30:07 INFO DAGScheduler: Final stage: ResultStage 37 (show at CitationGraph.java:199)
+24/02/13 22:30:07 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 36)
+24/02/13 22:30:07 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:07 INFO DAGScheduler: Submitting ResultStage 37 (MapPartitionsRDD[54] at show at CitationGraph.java:199), which has no missing parents
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_19 stored as values in memory (estimated size 60.7 KiB, free 432.8 MiB)
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_19_piece0 stored as bytes in memory (estimated size 25.9 KiB, free 432.8 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_19_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 25.9 KiB, free: 433.4 MiB)
+24/02/13 22:30:07 INFO SparkContext: Created broadcast 19 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:07 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 37 (MapPartitionsRDD[54] at show at CitationGraph.java:199) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Adding task set 37.0 with 1 tasks resource profile 0
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 0.0 in stage 37.0 (TID 32) (129.82.44.160, executor 4, partition 0, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_19_piece0 in memory on 129.82.44.160:43625 (size: 25.9 KiB, free: 433.4 MiB)
+24/02/13 22:30:07 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 10 to 129.82.44.160:56064
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 0.0 in stage 37.0 (TID 32) in 64 ms on 129.82.44.160 (executor 4) (1/1)
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Removed TaskSet 37.0, whose tasks have all completed, from pool
+24/02/13 22:30:07 INFO DAGScheduler: ResultStage 37 (show at CitationGraph.java:199) finished in 0.066 s
+24/02/13 22:30:07 INFO DAGScheduler: Job 14 is finished. Cancelling potential speculative or zombie tasks for this job
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Killing all running tasks in stage 37: Stage finished
+24/02/13 22:30:07 INFO DAGScheduler: Job 14 finished: show at CitationGraph.java:199, took 0.068258 s
++--------------+---------------------+
+|published_year|unique_citation_edges|
++--------------+---------------------+
+|          2000|                27599|
+|          2002|                12715|
+|          1995|                 6307|
+|          1992|                  168|
+|          1999|                22788|
+|          1994|                 3468|
+|          1997|                13655|
+|          1996|                 9827|
+|          1998|                18055|
+|          1993|                 1232|
+|          2001|                32333|
++--------------+---------------------+
+
+****Cumulative edges by end of given year****
+24/02/13 22:30:07 INFO FileSourceStrategy: Pushed Filters:
+24/02/13 22:30:07 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(split(value#0, 	, -1)[0])
+24/02/13 22:30:07 INFO FileSourceStrategy: Pushed Filters: IsNotNull(value)
+24/02/13 22:30:07 INFO FileSourceStrategy: Post-Scan Filters: isnotnull(value#7),((cast(substring(split(value#7, 	, -1)[1], 1, 4) as int) < 2003) OR ((cast(substring(split(value#7, 	, -1)[1], 1, 4) as int) = 2003) AND (substring(split(value#7, 	, -1)[1], 6, 7) <= 04))),(substring(split(value#7, 	, -1)[1], 1, 4) >= 1992),(substring(split(value#7, 	, -1)[1], 1, 4) <= 2004),isnotnull(split(value#7, 	, -1)[0])
+24/02/13 22:30:07 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:07 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:07 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_20 stored as values in memory (estimated size 203.1 KiB, free 432.6 MiB)
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_20_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 432.5 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_20_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 35.5 KiB, free: 433.3 MiB)
+24/02/13 22:30:07 INFO SparkContext: Created broadcast 20 from show at CitationGraph.java:226
+24/02/13 22:30:07 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/02/13 22:30:07 INFO DAGScheduler: Registering RDD 59 (show at CitationGraph.java:226) as input to shuffle 11
+24/02/13 22:30:07 INFO DAGScheduler: Got map stage job 15 (show at CitationGraph.java:226) with 1 output partitions
+24/02/13 22:30:07 INFO DAGScheduler: Final stage: ShuffleMapStage 38 (show at CitationGraph.java:226)
+24/02/13 22:30:07 INFO DAGScheduler: Parents of final stage: List()
+24/02/13 22:30:07 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:07 INFO DAGScheduler: Submitting ShuffleMapStage 38 (MapPartitionsRDD[59] at show at CitationGraph.java:226), which has no missing parents
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_21 stored as values in memory (estimated size 16.1 KiB, free 432.5 MiB)
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_21_piece0 stored as bytes in memory (estimated size 7.7 KiB, free 432.5 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_21_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 7.7 KiB, free: 433.3 MiB)
+24/02/13 22:30:07 INFO SparkContext: Created broadcast 21 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:07 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 38 (MapPartitionsRDD[59] at show at CitationGraph.java:226) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Adding task set 38.0 with 1 tasks resource profile 0
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 0.0 in stage 38.0 (TID 33) (129.82.44.164, executor 9, partition 0, ANY, 8428 bytes)
+24/02/13 22:30:07 INFO CodeGenerator: Code generated in 4.808805 ms
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_22 stored as values in memory (estimated size 203.1 KiB, free 432.3 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_21_piece0 in memory on 129.82.44.164:41145 (size: 7.7 KiB, free: 434.4 MiB)
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_22_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 432.3 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_22_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 35.5 KiB, free: 433.3 MiB)
+24/02/13 22:30:07 INFO SparkContext: Created broadcast 22 from show at CitationGraph.java:226
+24/02/13 22:30:07 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/02/13 22:30:07 INFO DAGScheduler: Registering RDD 64 (show at CitationGraph.java:226) as input to shuffle 12
+24/02/13 22:30:07 INFO DAGScheduler: Got map stage job 16 (show at CitationGraph.java:226) with 1 output partitions
+24/02/13 22:30:07 INFO DAGScheduler: Final stage: ShuffleMapStage 39 (show at CitationGraph.java:226)
+24/02/13 22:30:07 INFO DAGScheduler: Parents of final stage: List()
+24/02/13 22:30:07 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:07 INFO DAGScheduler: Submitting ShuffleMapStage 39 (MapPartitionsRDD[64] at show at CitationGraph.java:226), which has no missing parents
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_23 stored as values in memory (estimated size 21.9 KiB, free 432.2 MiB)
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_23_piece0 stored as bytes in memory (estimated size 9.0 KiB, free 432.2 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_23_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 9.0 KiB, free: 433.3 MiB)
+24/02/13 22:30:07 INFO SparkContext: Created broadcast 23 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:07 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 39 (MapPartitionsRDD[64] at show at CitationGraph.java:226) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Adding task set 39.0 with 1 tasks resource profile 0
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 0.0 in stage 39.0 (TID 34) (129.82.44.158, executor 5, partition 0, ANY, 8434 bytes)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_20_piece0 in memory on 129.82.44.164:41145 (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_23_piece0 in memory on 129.82.44.158:40201 (size: 9.0 KiB, free: 434.4 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_22_piece0 in memory on 129.82.44.158:40201 (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 0.0 in stage 39.0 (TID 34) in 82 ms on 129.82.44.158 (executor 5) (1/1)
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Removed TaskSet 39.0, whose tasks have all completed, from pool
+24/02/13 22:30:07 INFO DAGScheduler: ShuffleMapStage 39 (show at CitationGraph.java:226) finished in 0.085 s
+24/02/13 22:30:07 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:07 INFO DAGScheduler: running: Set(ShuffleMapStage 38)
+24/02/13 22:30:07 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:07 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:07 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:07 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:07 INFO CodeGenerator: Code generated in 2.759656 ms
+24/02/13 22:30:07 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264
+24/02/13 22:30:07 INFO DAGScheduler: Got job 17 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:264) with 5 output partitions
+24/02/13 22:30:07 INFO DAGScheduler: Final stage: ResultStage 41 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:264)
+24/02/13 22:30:07 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 40)
+24/02/13 22:30:07 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:07 INFO DAGScheduler: Submitting ResultStage 41 (MapPartitionsRDD[67] at $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264), which has no missing parents
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_24 stored as values in memory (estimated size 12.6 KiB, free 432.2 MiB)
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_24_piece0 stored as bytes in memory (estimated size 6.0 KiB, free 432.2 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_24_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 6.0 KiB, free: 433.3 MiB)
+24/02/13 22:30:07 INFO SparkContext: Created broadcast 24 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:07 INFO DAGScheduler: Submitting 5 missing tasks from ResultStage 41 (MapPartitionsRDD[67] at $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4))
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Adding task set 41.0 with 5 tasks resource profile 0
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 0.0 in stage 41.0 (TID 35) (129.82.44.158, executor 1, partition 0, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 1.0 in stage 41.0 (TID 36) (129.82.44.158, executor 5, partition 1, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_24_piece0 in memory on 129.82.44.158:40201 (size: 6.0 KiB, free: 434.4 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_24_piece0 in memory on 129.82.44.158:41429 (size: 6.0 KiB, free: 434.4 MiB)
+24/02/13 22:30:07 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 12 to 129.82.44.158:36146
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 2.0 in stage 41.0 (TID 37) (129.82.44.158, executor 5, partition 2, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 1.0 in stage 41.0 (TID 36) in 23 ms on 129.82.44.158 (executor 5) (1/5)
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 3.0 in stage 41.0 (TID 38) (129.82.44.158, executor 5, partition 3, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 2.0 in stage 41.0 (TID 37) in 10 ms on 129.82.44.158 (executor 5) (2/5)
+24/02/13 22:30:07 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 12 to 129.82.44.158:36150
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 4.0 in stage 41.0 (TID 39) (129.82.44.158, executor 5, partition 4, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 3.0 in stage 41.0 (TID 38) in 10 ms on 129.82.44.158 (executor 5) (3/5)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 0.0 in stage 41.0 (TID 35) in 54 ms on 129.82.44.158 (executor 1) (4/5)
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 4.0 in stage 41.0 (TID 39) in 15 ms on 129.82.44.158 (executor 5) (5/5)
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Removed TaskSet 41.0, whose tasks have all completed, from pool
+24/02/13 22:30:07 INFO DAGScheduler: ResultStage 41 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:264) finished in 0.060 s
+24/02/13 22:30:07 INFO DAGScheduler: Job 17 is finished. Cancelling potential speculative or zombie tasks for this job
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Killing all running tasks in stage 41: Stage finished
+24/02/13 22:30:07 INFO DAGScheduler: Job 17 finished: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264, took 0.061018 s
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_25_piece0 stored as bytes in memory (estimated size 897.3 KiB, free 431.3 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_25_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 897.3 KiB, free: 432.4 MiB)
+24/02/13 22:30:07 INFO SparkContext: Created broadcast 25 from $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264
+24/02/13 22:30:07 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:07 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:07 INFO TaskSetManager: Finished task 0.0 in stage 38.0 (TID 33) in 266 ms on 129.82.44.164 (executor 9) (1/1)
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Removed TaskSet 38.0, whose tasks have all completed, from pool
+24/02/13 22:30:07 INFO DAGScheduler: ShuffleMapStage 38 (show at CitationGraph.java:226) finished in 0.268 s
+24/02/13 22:30:07 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:07 INFO DAGScheduler: running: Set()
+24/02/13 22:30:07 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:07 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:07 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:07 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:07 INFO DAGScheduler: Registering RDD 70 (show at CitationGraph.java:226) as input to shuffle 13
+24/02/13 22:30:07 INFO DAGScheduler: Got map stage job 18 (show at CitationGraph.java:226) with 5 output partitions
+24/02/13 22:30:07 INFO DAGScheduler: Final stage: ShuffleMapStage 43 (show at CitationGraph.java:226)
+24/02/13 22:30:07 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 42)
+24/02/13 22:30:07 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:07 INFO DAGScheduler: Submitting ShuffleMapStage 43 (MapPartitionsRDD[70] at show at CitationGraph.java:226), which has no missing parents
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_26 stored as values in memory (estimated size 59.8 KiB, free 431.3 MiB)
+24/02/13 22:30:07 INFO MemoryStore: Block broadcast_26_piece0 stored as bytes in memory (estimated size 25.6 KiB, free 431.3 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_26_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 25.6 KiB, free: 432.4 MiB)
+24/02/13 22:30:07 INFO SparkContext: Created broadcast 26 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:07 INFO DAGScheduler: Submitting 5 missing tasks from ShuffleMapStage 43 (MapPartitionsRDD[70] at show at CitationGraph.java:226) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4))
+24/02/13 22:30:07 INFO TaskSchedulerImpl: Adding task set 43.0 with 5 tasks resource profile 0
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 0.0 in stage 43.0 (TID 40) (129.82.44.164, executor 0, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:07 INFO TaskSetManager: Starting task 1.0 in stage 43.0 (TID 41) (129.82.44.164, executor 9, partition 1, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_26_piece0 in memory on 129.82.44.164:41145 (size: 25.6 KiB, free: 434.3 MiB)
+24/02/13 22:30:07 INFO BlockManagerInfo: Added broadcast_26_piece0 in memory on 129.82.44.164:34803 (size: 25.6 KiB, free: 434.4 MiB)
+24/02/13 22:30:07 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 11 to 129.82.44.164:41530
+24/02/13 22:30:07 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 11 to 129.82.44.164:41528
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_25_piece0 in memory on 129.82.44.164:41145 (size: 897.3 KiB, free: 433.5 MiB)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_25_piece0 in memory on 129.82.44.164:34803 (size: 897.3 KiB, free: 433.5 MiB)
+24/02/13 22:30:08 INFO TaskSetManager: Starting task 2.0 in stage 43.0 (TID 42) (129.82.44.164, executor 9, partition 2, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:08 INFO TaskSetManager: Finished task 1.0 in stage 43.0 (TID 41) in 177 ms on 129.82.44.164 (executor 9) (1/5)
+24/02/13 22:30:08 INFO TaskSetManager: Starting task 3.0 in stage 43.0 (TID 43) (129.82.44.164, executor 0, partition 3, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:08 INFO TaskSetManager: Finished task 0.0 in stage 43.0 (TID 40) in 188 ms on 129.82.44.164 (executor 0) (2/5)
+24/02/13 22:30:08 INFO TaskSetManager: Starting task 4.0 in stage 43.0 (TID 44) (129.82.44.164, executor 9, partition 4, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:08 INFO TaskSetManager: Finished task 2.0 in stage 43.0 (TID 42) in 81 ms on 129.82.44.164 (executor 9) (3/5)
+24/02/13 22:30:08 INFO TaskSetManager: Finished task 3.0 in stage 43.0 (TID 43) in 80 ms on 129.82.44.164 (executor 0) (4/5)
+24/02/13 22:30:08 INFO TaskSetManager: Finished task 4.0 in stage 43.0 (TID 44) in 54 ms on 129.82.44.164 (executor 9) (5/5)
+24/02/13 22:30:08 INFO TaskSchedulerImpl: Removed TaskSet 43.0, whose tasks have all completed, from pool
+24/02/13 22:30:08 INFO DAGScheduler: ShuffleMapStage 43 (show at CitationGraph.java:226) finished in 0.316 s
+24/02/13 22:30:08 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:08 INFO DAGScheduler: running: Set()
+24/02/13 22:30:08 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:08 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:08 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:08 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:08 INFO ShufflePartitionsUtil: For shuffle(13), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/02/13 22:30:08 INFO DAGScheduler: Registering RDD 73 (show at CitationGraph.java:226) as input to shuffle 14
+24/02/13 22:30:08 INFO DAGScheduler: Got map stage job 19 (show at CitationGraph.java:226) with 3 output partitions
+24/02/13 22:30:08 INFO DAGScheduler: Final stage: ShuffleMapStage 46 (show at CitationGraph.java:226)
+24/02/13 22:30:08 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 45)
+24/02/13 22:30:08 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:08 INFO DAGScheduler: Submitting ShuffleMapStage 46 (MapPartitionsRDD[73] at show at CitationGraph.java:226), which has no missing parents
+24/02/13 22:30:08 INFO MemoryStore: Block broadcast_27 stored as values in memory (estimated size 73.6 KiB, free 431.2 MiB)
+24/02/13 22:30:08 INFO MemoryStore: Block broadcast_27_piece0 stored as bytes in memory (estimated size 29.3 KiB, free 431.2 MiB)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_27_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 29.3 KiB, free: 432.3 MiB)
+24/02/13 22:30:08 INFO SparkContext: Created broadcast 27 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:08 INFO DAGScheduler: Submitting 3 missing tasks from ShuffleMapStage 46 (MapPartitionsRDD[73] at show at CitationGraph.java:226) (first 15 tasks are for partitions Vector(0, 1, 2))
+24/02/13 22:30:08 INFO TaskSchedulerImpl: Adding task set 46.0 with 3 tasks resource profile 0
+24/02/13 22:30:08 INFO TaskSetManager: Starting task 0.0 in stage 46.0 (TID 45) (129.82.44.164, executor 0, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:08 INFO TaskSetManager: Starting task 1.0 in stage 46.0 (TID 46) (129.82.44.164, executor 9, partition 1, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_27_piece0 in memory on 129.82.44.164:41145 (size: 29.3 KiB, free: 433.4 MiB)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_27_piece0 in memory on 129.82.44.164:34803 (size: 29.3 KiB, free: 433.5 MiB)
+24/02/13 22:30:08 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 13 to 129.82.44.164:41528
+24/02/13 22:30:08 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 13 to 129.82.44.164:41530
+24/02/13 22:30:08 INFO TaskSetManager: Starting task 2.0 in stage 46.0 (TID 47) (129.82.44.164, executor 9, partition 2, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:08 INFO TaskSetManager: Finished task 1.0 in stage 46.0 (TID 46) in 74 ms on 129.82.44.164 (executor 9) (1/3)
+24/02/13 22:30:08 INFO TaskSetManager: Finished task 0.0 in stage 46.0 (TID 45) in 75 ms on 129.82.44.164 (executor 0) (2/3)
+24/02/13 22:30:08 INFO TaskSetManager: Finished task 2.0 in stage 46.0 (TID 47) in 43 ms on 129.82.44.164 (executor 9) (3/3)
+24/02/13 22:30:08 INFO TaskSchedulerImpl: Removed TaskSet 46.0, whose tasks have all completed, from pool
+24/02/13 22:30:08 INFO DAGScheduler: ShuffleMapStage 46 (show at CitationGraph.java:226) finished in 0.121 s
+24/02/13 22:30:08 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:08 INFO DAGScheduler: running: Set()
+24/02/13 22:30:08 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:08 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:08 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:08 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:08 INFO ShufflePartitionsUtil: For shuffle(14), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/02/13 22:30:08 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+24/02/13 22:30:08 INFO CodeGenerator: Code generated in 4.090794 ms
+24/02/13 22:30:08 INFO DAGScheduler: Registering RDD 76 (show at CitationGraph.java:226) as input to shuffle 15
+24/02/13 22:30:08 INFO DAGScheduler: Got map stage job 20 (show at CitationGraph.java:226) with 1 output partitions
+24/02/13 22:30:08 INFO DAGScheduler: Final stage: ShuffleMapStage 50 (show at CitationGraph.java:226)
+24/02/13 22:30:08 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 49)
+24/02/13 22:30:08 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:08 INFO DAGScheduler: Submitting ShuffleMapStage 50 (MapPartitionsRDD[76] at show at CitationGraph.java:226), which has no missing parents
+24/02/13 22:30:08 INFO MemoryStore: Block broadcast_28 stored as values in memory (estimated size 64.9 KiB, free 431.1 MiB)
+24/02/13 22:30:08 INFO MemoryStore: Block broadcast_28_piece0 stored as bytes in memory (estimated size 27.5 KiB, free 431.1 MiB)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_28_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 27.5 KiB, free: 432.3 MiB)
+24/02/13 22:30:08 INFO SparkContext: Created broadcast 28 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:08 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 50 (MapPartitionsRDD[76] at show at CitationGraph.java:226) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:08 INFO TaskSchedulerImpl: Adding task set 50.0 with 1 tasks resource profile 0
+24/02/13 22:30:08 INFO TaskSetManager: Starting task 0.0 in stage 50.0 (TID 48) (129.82.44.164, executor 9, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_28_piece0 in memory on 129.82.44.164:41145 (size: 27.5 KiB, free: 433.4 MiB)
+24/02/13 22:30:08 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 14 to 129.82.44.164:41528
+24/02/13 22:30:08 INFO TaskSetManager: Finished task 0.0 in stage 50.0 (TID 48) in 22 ms on 129.82.44.164 (executor 9) (1/1)
+24/02/13 22:30:08 INFO TaskSchedulerImpl: Removed TaskSet 50.0, whose tasks have all completed, from pool
+24/02/13 22:30:08 INFO DAGScheduler: ShuffleMapStage 50 (show at CitationGraph.java:226) finished in 0.025 s
+24/02/13 22:30:08 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:08 INFO DAGScheduler: running: Set()
+24/02/13 22:30:08 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:08 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:08 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:08 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+24/02/13 22:30:08 INFO CodeGenerator: Code generated in 2.970845 ms
+24/02/13 22:30:08 INFO CodeGenerator: Code generated in 2.72898 ms
+24/02/13 22:30:08 INFO SparkContext: Starting job: show at CitationGraph.java:226
+24/02/13 22:30:08 INFO DAGScheduler: Got job 21 (show at CitationGraph.java:226) with 1 output partitions
+24/02/13 22:30:08 INFO DAGScheduler: Final stage: ResultStage 55 (show at CitationGraph.java:226)
+24/02/13 22:30:08 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 54)
+24/02/13 22:30:08 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:08 INFO DAGScheduler: Submitting ResultStage 55 (MapPartitionsRDD[81] at show at CitationGraph.java:226), which has no missing parents
+24/02/13 22:30:08 INFO MemoryStore: Block broadcast_29 stored as values in memory (estimated size 71.0 KiB, free 431.0 MiB)
+24/02/13 22:30:08 INFO MemoryStore: Block broadcast_29_piece0 stored as bytes in memory (estimated size 29.9 KiB, free 431.0 MiB)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_29_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 29.9 KiB, free: 432.3 MiB)
+24/02/13 22:30:08 INFO SparkContext: Created broadcast 29 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:08 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 55 (MapPartitionsRDD[81] at show at CitationGraph.java:226) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:08 INFO TaskSchedulerImpl: Adding task set 55.0 with 1 tasks resource profile 0
+24/02/13 22:30:08 INFO TaskSetManager: Starting task 0.0 in stage 55.0 (TID 49) (129.82.44.164, executor 9, partition 0, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_29_piece0 in memory on 129.82.44.164:41145 (size: 29.9 KiB, free: 433.4 MiB)
+24/02/13 22:30:08 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 15 to 129.82.44.164:41528
+24/02/13 22:30:08 INFO TaskSetManager: Finished task 0.0 in stage 55.0 (TID 49) in 351 ms on 129.82.44.164 (executor 9) (1/1)
+24/02/13 22:30:08 INFO TaskSchedulerImpl: Removed TaskSet 55.0, whose tasks have all completed, from pool
+24/02/13 22:30:08 INFO DAGScheduler: ResultStage 55 (show at CitationGraph.java:226) finished in 0.354 s
+24/02/13 22:30:08 INFO DAGScheduler: Job 21 is finished. Cancelling potential speculative or zombie tasks for this job
+24/02/13 22:30:08 INFO TaskSchedulerImpl: Killing all running tasks in stage 55: Stage finished
+24/02/13 22:30:08 INFO DAGScheduler: Job 21 finished: show at CitationGraph.java:226, took 0.355772 s
++--------------+---------------------+---------------+-----------------------------------+
+|published_year|unique_citation_edges|End of year (t)|No of edges at end of year t (e(t))|
++--------------+---------------------+---------------+-----------------------------------+
+|          1992|                  168|           1993|                                168|
+|          1993|                 1232|           1994|                               1400|
+|          1994|                 3468|           1995|                               4868|
+|          1995|                 6307|           1996|                              11175|
+|          1996|                 9827|           1997|                              21002|
+|          1997|                13655|           1998|                              34657|
+|          1998|                18055|           1999|                              52712|
+|          1999|                22788|           2000|                              75500|
+|          2000|                27599|           2001|                             103099|
+|          2001|                32333|           2002|                             135432|
+|          2002|                12715|           2003|                             148147|
++--------------+---------------------+---------------+-----------------------------------+
+
+24/02/13 22:30:08 INFO FileSourceStrategy: Pushed Filters:
+24/02/13 22:30:08 INFO FileSourceStrategy: Post-Scan Filters:
+24/02/13 22:30:08 INFO MemoryStore: Block broadcast_30 stored as values in memory (estimated size 203.1 KiB, free 430.8 MiB)
+24/02/13 22:30:08 INFO MemoryStore: Block broadcast_30_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 430.7 MiB)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_30_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 35.5 KiB, free: 432.3 MiB)
+24/02/13 22:30:08 INFO SparkContext: Created broadcast 30 from collectAsList at CitationGraph.java:63
+24/02/13 22:30:08 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/02/13 22:30:08 INFO DAGScheduler: Registering RDD 85 (collectAsList at CitationGraph.java:63) as input to shuffle 16
+24/02/13 22:30:08 INFO DAGScheduler: Got map stage job 22 (collectAsList at CitationGraph.java:63) with 1 output partitions
+24/02/13 22:30:08 INFO DAGScheduler: Final stage: ShuffleMapStage 56 (collectAsList at CitationGraph.java:63)
+24/02/13 22:30:08 INFO DAGScheduler: Parents of final stage: List()
+24/02/13 22:30:08 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:08 INFO DAGScheduler: Submitting ShuffleMapStage 56 (MapPartitionsRDD[85] at collectAsList at CitationGraph.java:63), which has no missing parents
+24/02/13 22:30:08 INFO MemoryStore: Block broadcast_31 stored as values in memory (estimated size 12.3 KiB, free 430.7 MiB)
+24/02/13 22:30:08 INFO MemoryStore: Block broadcast_31_piece0 stored as bytes in memory (estimated size 6.1 KiB, free 430.7 MiB)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_31_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 6.1 KiB, free: 432.2 MiB)
+24/02/13 22:30:08 INFO SparkContext: Created broadcast 31 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:08 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 56 (MapPartitionsRDD[85] at collectAsList at CitationGraph.java:63) (first 15 tasks are for partitions Vector(0))
+24/02/13 22:30:08 INFO TaskSchedulerImpl: Adding task set 56.0 with 1 tasks resource profile 0
+24/02/13 22:30:08 INFO TaskSetManager: Starting task 0.0 in stage 56.0 (TID 50) (129.82.44.165, executor 3, partition 0, ANY, 8428 bytes)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_31_piece0 in memory on 129.82.44.165:39193 (size: 6.1 KiB, free: 434.4 MiB)
+24/02/13 22:30:08 INFO BlockManagerInfo: Added broadcast_30_piece0 in memory on 129.82.44.165:39193 (size: 35.5 KiB, free: 434.3 MiB)
+24/02/13 22:30:09 INFO TaskSetManager: Finished task 0.0 in stage 56.0 (TID 50) in 202 ms on 129.82.44.165 (executor 3) (1/1)
+24/02/13 22:30:09 INFO TaskSchedulerImpl: Removed TaskSet 56.0, whose tasks have all completed, from pool
+24/02/13 22:30:09 INFO DAGScheduler: ShuffleMapStage 56 (collectAsList at CitationGraph.java:63) finished in 0.205 s
+24/02/13 22:30:09 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:09 INFO DAGScheduler: running: Set()
+24/02/13 22:30:09 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:09 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:09 INFO CodeGenerator: Code generated in 5.3549 ms
+24/02/13 22:30:09 INFO DAGScheduler: Registering RDD 89 (collectAsList at CitationGraph.java:63) as input to shuffle 17
+24/02/13 22:30:09 INFO DAGScheduler: Got map stage job 23 (collectAsList at CitationGraph.java:63) with 5 output partitions
+24/02/13 22:30:09 INFO DAGScheduler: Final stage: ShuffleMapStage 58 (collectAsList at CitationGraph.java:63)
+24/02/13 22:30:09 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 57)
+24/02/13 22:30:09 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:09 INFO DAGScheduler: Submitting ShuffleMapStage 58 (MapPartitionsRDD[89] at collectAsList at CitationGraph.java:63), which has no missing parents
+24/02/13 22:30:09 INFO MemoryStore: Block broadcast_32 stored as values in memory (estimated size 37.5 KiB, free 430.7 MiB)
+24/02/13 22:30:09 INFO MemoryStore: Block broadcast_32_piece0 stored as bytes in memory (estimated size 17.3 KiB, free 430.7 MiB)
+24/02/13 22:30:09 INFO BlockManagerInfo: Added broadcast_32_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 17.3 KiB, free: 432.2 MiB)
+24/02/13 22:30:09 INFO SparkContext: Created broadcast 32 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:09 INFO DAGScheduler: Submitting 5 missing tasks from ShuffleMapStage 58 (MapPartitionsRDD[89] at collectAsList at CitationGraph.java:63) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4))
+24/02/13 22:30:09 INFO TaskSchedulerImpl: Adding task set 58.0 with 5 tasks resource profile 0
+24/02/13 22:30:09 INFO TaskSetManager: Starting task 0.0 in stage 58.0 (TID 51) (129.82.44.165, executor 3, partition 0, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:09 INFO TaskSetManager: Starting task 1.0 in stage 58.0 (TID 52) (129.82.44.165, executor 8, partition 1, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:09 INFO BlockManagerInfo: Added broadcast_32_piece0 in memory on 129.82.44.165:39193 (size: 17.3 KiB, free: 434.3 MiB)
+24/02/13 22:30:09 INFO BlockManagerInfo: Added broadcast_32_piece0 in memory on 129.82.44.165:39397 (size: 17.3 KiB, free: 434.4 MiB)
+24/02/13 22:30:09 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 16 to 129.82.44.165:36546
+24/02/13 22:30:09 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 16 to 129.82.44.165:36540
+24/02/13 22:30:09 INFO TaskSetManager: Starting task 2.0 in stage 58.0 (TID 53) (129.82.44.165, executor 3, partition 2, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:09 INFO TaskSetManager: Finished task 0.0 in stage 58.0 (TID 51) in 351 ms on 129.82.44.165 (executor 3) (1/5)
+24/02/13 22:30:09 INFO TaskSetManager: Starting task 3.0 in stage 58.0 (TID 54) (129.82.44.165, executor 3, partition 3, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:09 INFO TaskSetManager: Finished task 2.0 in stage 58.0 (TID 53) in 161 ms on 129.82.44.165 (executor 3) (2/5)
+24/02/13 22:30:09 INFO TaskSetManager: Starting task 4.0 in stage 58.0 (TID 55) (129.82.44.165, executor 8, partition 4, NODE_LOCAL, 7809 bytes)
+24/02/13 22:30:09 INFO TaskSetManager: Finished task 1.0 in stage 58.0 (TID 52) in 580 ms on 129.82.44.165 (executor 8) (3/5)
+24/02/13 22:30:09 INFO TaskSetManager: Finished task 3.0 in stage 58.0 (TID 54) in 79 ms on 129.82.44.165 (executor 3) (4/5)
+24/02/13 22:30:09 INFO TaskSetManager: Finished task 4.0 in stage 58.0 (TID 55) in 90 ms on 129.82.44.165 (executor 8) (5/5)
+24/02/13 22:30:09 INFO TaskSchedulerImpl: Removed TaskSet 58.0, whose tasks have all completed, from pool
+24/02/13 22:30:09 INFO DAGScheduler: ShuffleMapStage 58 (collectAsList at CitationGraph.java:63) finished in 0.679 s
+24/02/13 22:30:09 INFO DAGScheduler: looking for newly runnable stages
+24/02/13 22:30:09 INFO DAGScheduler: running: Set()
+24/02/13 22:30:09 INFO DAGScheduler: waiting: Set()
+24/02/13 22:30:09 INFO DAGScheduler: failed: Set()
+24/02/13 22:30:09 INFO ShufflePartitionsUtil: For shuffle(17), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/02/13 22:30:09 INFO SparkContext: Starting job: collectAsList at CitationGraph.java:63
+24/02/13 22:30:09 INFO DAGScheduler: Got job 24 (collectAsList at CitationGraph.java:63) with 3 output partitions
+24/02/13 22:30:09 INFO DAGScheduler: Final stage: ResultStage 61 (collectAsList at CitationGraph.java:63)
+24/02/13 22:30:09 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 60)
+24/02/13 22:30:09 INFO DAGScheduler: Missing parents: List()
+24/02/13 22:30:09 INFO DAGScheduler: Submitting ResultStage 61 (MapPartitionsRDD[92] at collectAsList at CitationGraph.java:63), which has no missing parents
+24/02/13 22:30:09 INFO MemoryStore: Block broadcast_33 stored as values in memory (estimated size 35.6 KiB, free 430.6 MiB)
+24/02/13 22:30:09 INFO MemoryStore: Block broadcast_33_piece0 stored as bytes in memory (estimated size 16.9 KiB, free 430.6 MiB)
+24/02/13 22:30:09 INFO BlockManagerInfo: Added broadcast_33_piece0 in memory on olympia.cs.colostate.edu:43375 (size: 16.9 KiB, free: 432.2 MiB)
+24/02/13 22:30:09 INFO SparkContext: Created broadcast 33 from broadcast at DAGScheduler.scala:1580
+24/02/13 22:30:09 INFO DAGScheduler: Submitting 3 missing tasks from ResultStage 61 (MapPartitionsRDD[92] at collectAsList at CitationGraph.java:63) (first 15 tasks are for partitions Vector(0, 1, 2))
+24/02/13 22:30:09 INFO TaskSchedulerImpl: Adding task set 61.0 with 3 tasks resource profile 0
+24/02/13 22:30:09 INFO TaskSetManager: Starting task 0.0 in stage 61.0 (TID 56) (129.82.44.165, executor 8, partition 0, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:09 INFO TaskSetManager: Starting task 1.0 in stage 61.0 (TID 57) (129.82.44.165, executor 3, partition 1, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:09 INFO BlockManagerInfo: Added broadcast_33_piece0 in memory on 129.82.44.165:39193 (size: 16.9 KiB, free: 434.3 MiB)
+24/02/13 22:30:09 INFO BlockManagerInfo: Added broadcast_33_piece0 in memory on 129.82.44.165:39397 (size: 16.9 KiB, free: 434.4 MiB)
+24/02/13 22:30:09 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 17 to 129.82.44.165:36546
+24/02/13 22:30:09 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 17 to 129.82.44.165:36540
+24/02/13 22:30:09 INFO TaskSetManager: Starting task 2.0 in stage 61.0 (TID 58) (129.82.44.165, executor 8, partition 2, NODE_LOCAL, 7820 bytes)
+24/02/13 22:30:09 INFO TaskSetManager: Finished task 0.0 in stage 61.0 (TID 56) in 118 ms on 129.82.44.165 (executor 8) (1/3)
+24/02/13 22:30:09 INFO TaskSetManager: Finished task 1.0 in stage 61.0 (TID 57) in 121 ms on 129.82.44.165 (executor 3) (2/3)
+24/02/13 22:30:09 INFO TaskSetManager: Finished task 2.0 in stage 61.0 (TID 58) in 52 ms on 129.82.44.165 (executor 8) (3/3)
+24/02/13 22:30:09 INFO TaskSchedulerImpl: Removed TaskSet 61.0, whose tasks have all completed, from pool
+24/02/13 22:30:09 INFO DAGScheduler: ResultStage 61 (collectAsList at CitationGraph.java:63) finished in 0.173 s
+24/02/13 22:30:09 INFO DAGScheduler: Job 24 is finished. Cancelling potential speculative or zombie tasks for this job
+24/02/13 22:30:09 INFO TaskSchedulerImpl: Killing all running tasks in stage 61: Stage finished
+24/02/13 22:30:09 INFO DAGScheduler: Job 24 finished: collectAsList at CitationGraph.java:63, took 0.174471 s
+24/02/13 22:30:09 INFO CodeGenerator: Code generated in 4.102913 ms
+35618
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_33_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 16.9 KiB, free: 432.2 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_33_piece0 on 129.82.44.165:39193 in memory (size: 16.9 KiB, free: 434.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_33_piece0 on 129.82.44.165:39397 in memory (size: 16.9 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_20_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 35.5 KiB, free: 432.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_20_piece0 on 129.82.44.164:41145 in memory (size: 35.5 KiB, free: 433.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_11_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 35.5 KiB, free: 432.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_11_piece0 on 129.82.44.160:43625 in memory (size: 35.5 KiB, free: 433.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_31_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 6.1 KiB, free: 432.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_31_piece0 on 129.82.44.165:39193 in memory (size: 6.1 KiB, free: 434.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_28_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 27.5 KiB, free: 432.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_28_piece0 on 129.82.44.164:41145 in memory (size: 27.5 KiB, free: 433.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_17_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 24.8 KiB, free: 432.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_17_piece0 on 129.82.44.160:43625 in memory (size: 24.8 KiB, free: 433.5 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_17_piece0 on 129.82.44.160:39417 in memory (size: 24.8 KiB, free: 433.5 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_29_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 29.9 KiB, free: 432.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_29_piece0 on 129.82.44.164:41145 in memory (size: 29.9 KiB, free: 433.5 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_16_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 897.3 KiB, free: 433.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_16_piece0 on 129.82.44.160:39417 in memory (size: 897.3 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_16_piece0 on 129.82.44.160:43625 in memory (size: 897.3 KiB, free: 434.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_15_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 6.1 KiB, free: 433.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_15_piece0 on 129.82.44.165:39193 in memory (size: 6.1 KiB, free: 434.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_15_piece0 on 129.82.44.165:39397 in memory (size: 6.1 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_18_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 27.8 KiB, free: 433.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_18_piece0 on 129.82.44.160:43625 in memory (size: 27.8 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_18_piece0 on 129.82.44.160:39417 in memory (size: 27.8 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_27_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 29.3 KiB, free: 433.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_27_piece0 on 129.82.44.164:41145 in memory (size: 29.3 KiB, free: 433.5 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_27_piece0 on 129.82.44.164:34803 in memory (size: 29.3 KiB, free: 433.5 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_26_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 25.6 KiB, free: 433.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_26_piece0 on 129.82.44.164:34803 in memory (size: 25.6 KiB, free: 433.5 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_26_piece0 on 129.82.44.164:41145 in memory (size: 25.6 KiB, free: 433.5 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_32_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 17.3 KiB, free: 433.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_32_piece0 on 129.82.44.165:39397 in memory (size: 17.3 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_32_piece0 on 129.82.44.165:39193 in memory (size: 17.3 KiB, free: 434.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_13_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 35.5 KiB, free: 433.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_13_piece0 on 129.82.44.165:39193 in memory (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_19_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 25.9 KiB, free: 433.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_19_piece0 on 129.82.44.160:43625 in memory (size: 25.9 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_12_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 7.7 KiB, free: 433.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_12_piece0 on 129.82.44.160:43625 in memory (size: 7.7 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_25_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 897.3 KiB, free: 434.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_25_piece0 on 129.82.44.164:34803 in memory (size: 897.3 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_25_piece0 on 129.82.44.164:41145 in memory (size: 897.3 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_24_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 6.0 KiB, free: 434.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_24_piece0 on 129.82.44.158:40201 in memory (size: 6.0 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_24_piece0 on 129.82.44.158:41429 in memory (size: 6.0 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_23_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 9.0 KiB, free: 434.3 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_23_piece0 on 129.82.44.158:40201 in memory (size: 9.0 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_22_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_22_piece0 on 129.82.44.158:40201 in memory (size: 35.5 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_21_piece0 on olympia.cs.colostate.edu:43375 in memory (size: 7.7 KiB, free: 434.4 MiB)
+24/02/13 22:30:10 INFO BlockManagerInfo: Removed broadcast_21_piece0 on 129.82.44.164:41145 in memory (size: 7.7 KiB, free: 434.4 MiB)
+ diameter 8
+[(8, 90.00000021895343), (1, 0.1520706065279522), (4, 18.775221328534574), (7, 82.13882738304378), (3, 5.287407149236977), (5, 43.742035103447066), (6, 67.23116672557609), (2, 1.0847010205047485)]
+done / number of connected pairs 228359055
+24/02/13 22:35:49 INFO SparkContext: Invoking stop() from shutdown hook
+24/02/13 22:35:49 INFO SparkContext: SparkContext is stopping with exitCode 0.
+24/02/13 22:35:49 INFO SparkUI: Stopped Spark web UI at http://olympia.cs.colostate.edu:4040
+24/02/13 22:35:49 INFO StandaloneSchedulerBackend: Shutting down all executors
+24/02/13 22:35:49 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+24/02/13 22:35:49 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+24/02/13 22:35:49 INFO MemoryStore: MemoryStore cleared
+24/02/13 22:35:49 INFO BlockManager: BlockManager stopped
+24/02/13 22:35:49 INFO BlockManagerMaster: BlockManagerMaster stopped
+24/02/13 22:35:49 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+24/02/13 22:35:49 INFO SparkContext: Successfully stopped SparkContext
+24/02/13 22:35:49 INFO ShutdownHookManager: Shutdown hook called
+24/02/13 22:35:49 INFO ShutdownHookManager: Deleting directory /tmp/spark-0c579b9d-17d8-437b-8609-dc43117c26d7
+24/02/13 22:35:49 INFO ShutdownHookManager: Deleting directory /tmp/spark-3d0ecc25-4a3a-40e7-a641-a050a7e281f3
